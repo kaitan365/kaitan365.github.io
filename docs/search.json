@@ -1,16 +1,107 @@
 [
   {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nUse Rutgers HPC Cluster\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kai Tan",
+    "section": "",
+    "text": "Welcome to my website! I’m a 5th-year Ph.D. student in Department of Statistics at Rutgers University. I am very fortunate to have Pierre C. Bellec as my PhD advisor. Prior to my Ph.D. journey, I earned two master’s degrees in Statistics from University of Kentucky and East China Normal University, and a bachelor’s degree in Mathematics and Economics from Central China Normal University."
+  },
+  {
+    "objectID": "index.html#recent-news",
+    "href": "index.html#recent-news",
+    "title": "Kai Tan",
+    "section": "Recent news",
+    "text": "Recent news\n\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: Paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions accepted in NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+  },
+  {
+    "objectID": "index.html#contact-me",
+    "href": "index.html#contact-me",
+    "title": "Kai Tan",
+    "section": "Contact me",
+    "text": "Contact me\nkai.tan@rutgers.edu\nDepartment of Statistics\nRutgers University\n477 Hill Center, Busch Campus\n110 Frelinghuysen Road\nPiscataway, NJ 08854"
+  },
+  {
+    "objectID": "posts/blog2.html",
+    "href": "posts/blog2.html",
+    "title": "Use Rutgers HPC Cluster",
+    "section": "",
+    "text": "Intro to Rutgers HPC Cluster\nThis blog aims to give an quick overview of how to use the Rutgers HPC cluster."
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
+  },
+  {
+    "objectID": "teaching.html#independent-instructor",
+    "href": "teaching.html#independent-instructor",
+    "title": "Teaching",
+    "section": "",
+    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. confidence interval for prediction), to improve the reliability of statistical machine learning methods."
+  },
+  {
+    "objectID": "research.html#preprints",
+    "href": "research.html#preprints",
+    "title": "Research",
+    "section": "Preprints",
+    "text": "Preprints\n\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order).\narXiv preprint: 2404.17856\nCorrected generalized cross-validation for finite ensembles of penalized estimators\nPierre C. Bellec, Jin-Hong Du, Takuya Koriyama, Pratik Patil, Kai Tan (2023) (alphabetical order).\narXiv preprint: 2310.01374 [Code]"
+  },
+  {
+    "objectID": "research.html#publications",
+    "href": "research.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\n\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. \nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998."
+  },
+  {
+    "objectID": "posts/blog1.html",
+    "href": "posts/blog1.html",
+    "title": "Write efficient Python code",
+    "section": "",
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.20621375006157905\ntime for method 2: 0.017127083032391965"
+  },
+  {
+    "objectID": "posts/blog1.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "href": "posts/blog1.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "title": "Write efficient Python code",
+    "section": "",
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.20621375006157905\ntime for method 2: 0.017127083032391965"
+  },
+  {
+    "objectID": "posts/blog1.html#avoid-large-matrix-multiplication",
+    "href": "posts/blog1.html#avoid-large-matrix-multiplication",
+    "title": "Write efficient Python code",
+    "section": "Avoid large matrix multiplication",
+    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.19951483292970806\ntime for method 2: 0.028284332947805524"
+  },
+  {
+    "objectID": "posts/blog1.html#prioritize-the-order-of-matrix-multiplication",
+    "href": "posts/blog1.html#prioritize-the-order-of-matrix-multiplication",
+    "title": "Write efficient Python code",
+    "section": "Prioritize the order of matrix multiplication",
+    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.21710574999451637\ntime for method 2: 0.0016295830719172955"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
     "text": "About this site"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "my_website",
-    "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]
