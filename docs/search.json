@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nUse Rutgers HPC Cluster\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUse Rutgers HPC Cluster\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -32,7 +32,7 @@
     "href": "posts/blog2.html",
     "title": "Use Rutgers HPC Cluster",
     "section": "",
-    "text": "Intro to Rutgers HPC Cluster\nThis blog aims to give an quick overview of how to use the Rutgers HPC cluster."
+    "text": "Intro to Rutgers HPC Cluster\nThis blog aims to give an quick overview of how to use the Rutgers HPC cluster. To be added."
   },
   {
     "objectID": "teaching.html",
