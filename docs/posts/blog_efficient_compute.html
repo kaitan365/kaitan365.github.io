@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="use-broadcasting-to-avoid-creating-a-diagonal-matrix">Use broadcasting to avoid creating a diagonal matrix</h2>
 <pre><code>- Use A * v instead of A @ np.diag(v)
 - Use v[:, np.newaxis] * A instead of np.diag(v) @ A</code></pre>
-<div id="0407cd3f" class="cell" data-execution_count="1">
+<div id="e9a586ea" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
@@ -214,15 +214,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> np.diag(v), number<span class="op">=</span><span class="dv">10</span>))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">*</span> v, number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.2875330001115799
-time for method 2: 0.013125125085934997</code></pre>
+<pre><code>time for method 1: 0.33212820813059807
+time for method 2: 0.010873875115066767</code></pre>
 </div>
 </div>
 </section>
 <section id="avoid-large-matrix-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="avoid-large-matrix-multiplication">Avoid large matrix multiplication</h2>
 <pre><code>- Use np.sum(A * B.T) instead of np.trace(A @ B)</code></pre>
-<div id="2a68250b" class="cell" data-execution_count="2">
+<div id="4e6ae6fa" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
@@ -231,15 +231,15 @@ time for method 2: 0.013125125085934997</code></pre>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.trace(A <span class="op">@</span> B), number<span class="op">=</span><span class="dv">10</span>))</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.<span class="bu">sum</span>(A <span class="op">*</span> B.T), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.26508399983868003
-time for method 2: 0.018454917008057237</code></pre>
+<pre><code>time for method 1: 0.24187054089270532
+time for method 2: 0.024406083161011338</code></pre>
 </div>
 </div>
 </section>
 <section id="prioritize-the-order-of-matrix-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="prioritize-the-order-of-matrix-multiplication">Prioritize the order of matrix multiplication</h2>
 <pre><code>- Use A @ (B @ v) instead of A @ B @ v if v is a vector. </code></pre>
-<div id="9008dbac" class="cell" data-execution_count="3">
+<div id="53086100" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
@@ -249,8 +249,8 @@ time for method 2: 0.018454917008057237</code></pre>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> B <span class="op">@</span> v, number<span class="op">=</span><span class="dv">10</span>))</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> (B <span class="op">@</span> v), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.2742931661196053
-time for method 2: 0.0030677500180900097</code></pre>
+<pre><code>time for method 1: 0.2083206248935312
+time for method 2: 0.003179666120558977</code></pre>
 </div>
 </div>
 

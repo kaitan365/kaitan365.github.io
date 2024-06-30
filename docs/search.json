@@ -70,32 +70,32 @@
     "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
   },
   {
-    "objectID": "posts/bloc_efficient_compute.html",
-    "href": "posts/bloc_efficient_compute.html",
+    "objectID": "posts/blog_efficient_compute.html",
+    "href": "posts/blog_efficient_compute.html",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2875330001115799\ntime for method 2: 0.013125125085934997"
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.33212820813059807\ntime for method 2: 0.010873875115066767"
   },
   {
-    "objectID": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
-    "href": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "objectID": "posts/blog_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "href": "posts/blog_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2875330001115799\ntime for method 2: 0.013125125085934997"
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.33212820813059807\ntime for method 2: 0.010873875115066767"
   },
   {
-    "objectID": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
-    "href": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
+    "objectID": "posts/blog_efficient_compute.html#avoid-large-matrix-multiplication",
+    "href": "posts/blog_efficient_compute.html#avoid-large-matrix-multiplication",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Avoid large matrix multiplication",
-    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.26508399983868003\ntime for method 2: 0.018454917008057237"
+    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.24187054089270532\ntime for method 2: 0.024406083161011338"
   },
   {
-    "objectID": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
-    "href": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
+    "objectID": "posts/blog_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
+    "href": "posts/blog_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Prioritize the order of matrix multiplication",
-    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.2742931661196053\ntime for method 2: 0.0030677500180900097"
+    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.2083206248935312\ntime for method 2: 0.003179666120558977"
   },
   {
     "objectID": "index.html",
