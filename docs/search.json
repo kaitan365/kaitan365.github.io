@@ -74,28 +74,28 @@
     "href": "posts/blog_efficient_compute.html",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use `A * v` instead of `A @ np.diag(v)`\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2360523750539869\ntime for method 2: 0.013749792007729411"
+    "text": "Use A * v instead of A @ np.diag(v)\nUse v[:, np.newaxis] * A instead of np.diag(v) @ A\n\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.35788241610862315\ntime for method 2: 0.015535916900262237"
   },
   {
     "objectID": "posts/blog_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
     "href": "posts/blog_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use `A * v` instead of `A @ np.diag(v)`\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2360523750539869\ntime for method 2: 0.013749792007729411"
+    "text": "Use A * v instead of A @ np.diag(v)\nUse v[:, np.newaxis] * A instead of np.diag(v) @ A\n\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.35788241610862315\ntime for method 2: 0.015535916900262237"
   },
   {
     "objectID": "posts/blog_efficient_compute.html#avoid-large-matrix-multiplication",
     "href": "posts/blog_efficient_compute.html#avoid-large-matrix-multiplication",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Avoid large matrix multiplication",
-    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.22245008405297995\ntime for method 2: 0.023613916942849755"
+    "text": "Avoid large matrix multiplication\n\nUse np.sum(A * B.T) instead of np.trace(A @ B)\n\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.4082623750437051\ntime for method 2: 0.017103500198572874"
   },
   {
     "objectID": "posts/blog_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
     "href": "posts/blog_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
     "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Prioritize the order of matrix multiplication",
-    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.2400473749730736\ntime for method 2: 0.004550582962110639"
+    "text": "Prioritize the order of matrix multiplication\n\nUse A @ (B @ v) instead of A @ B @ v when v is a vector or an array of smaller size.\n\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.2908879171591252\ntime for method 2: 0.0026229999493807554"
   },
   {
     "objectID": "index.html",

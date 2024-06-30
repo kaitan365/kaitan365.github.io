@@ -201,55 +201,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="use-broadcasting-to-avoid-creating-a-diagonal-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="use-broadcasting-to-avoid-creating-a-diagonal-matrix">Use broadcasting to avoid creating a diagonal matrix</h2>
-<pre><code>- Use `A * v` instead of `A @ np.diag(v)`
-- Use v[:, np.newaxis] * A instead of np.diag(v) @ A</code></pre>
-<div id="cc181026" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.<span class="bu">all</span>( A <span class="op">@</span> np.diag(v) <span class="op">==</span> A <span class="op">*</span> v )</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.<span class="bu">all</span>( np.diag(v) <span class="op">@</span> A <span class="op">==</span> v[:, np.newaxis] <span class="op">*</span> A )</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> np.diag(v), number<span class="op">=</span><span class="dv">10</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">*</span> v, number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use <code>A * v</code> instead of <code>A @ np.diag(v)</code></li>
+<li>Use <code>v[:, np.newaxis] * A</code> instead of <code>np.diag(v) @ A</code></li>
+</ul>
+<div id="7e4132c0" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.<span class="bu">all</span>( A <span class="op">@</span> np.diag(v) <span class="op">==</span> A <span class="op">*</span> v )</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.<span class="bu">all</span>( np.diag(v) <span class="op">@</span> A <span class="op">==</span> v[:, np.newaxis] <span class="op">*</span> A )</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> np.diag(v), number<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">*</span> v, number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.2360523750539869
-time for method 2: 0.013749792007729411</code></pre>
+<pre><code>time for method 1: 0.35788241610862315
+time for method 2: 0.015535916900262237</code></pre>
 </div>
 </div>
 </section>
 <section id="avoid-large-matrix-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="avoid-large-matrix-multiplication">Avoid large matrix multiplication</h2>
-<pre><code>- Use np.sum(A * B.T) instead of np.trace(A @ B)</code></pre>
-<div id="1833c1af" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.isclose(np.trace(A <span class="op">@</span> B), np.<span class="bu">sum</span>(A <span class="op">*</span> B.T))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.trace(A <span class="op">@</span> B), number<span class="op">=</span><span class="dv">10</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.<span class="bu">sum</span>(A <span class="op">*</span> B.T), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use <code>np.sum(A * B.T)</code> instead of <code>np.trace(A @ B)</code></li>
+</ul>
+<div id="eea447cc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.isclose(np.trace(A <span class="op">@</span> B), np.<span class="bu">sum</span>(A <span class="op">*</span> B.T))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.trace(A <span class="op">@</span> B), number<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: np.<span class="bu">sum</span>(A <span class="op">*</span> B.T), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.22245008405297995
-time for method 2: 0.023613916942849755</code></pre>
+<pre><code>time for method 1: 0.4082623750437051
+time for method 2: 0.017103500198572874</code></pre>
 </div>
 </div>
 </section>
 <section id="prioritize-the-order-of-matrix-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="prioritize-the-order-of-matrix-multiplication">Prioritize the order of matrix multiplication</h2>
-<pre><code>- Use A @ (B @ v) instead of A @ B @ v if v is a vector. </code></pre>
-<div id="18ed605c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(A <span class="op">@</span> B <span class="op">@</span> v, A <span class="op">@</span> (B <span class="op">@</span> v))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> B <span class="op">@</span> v, number<span class="op">=</span><span class="dv">10</span>))</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> (B <span class="op">@</span> v), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use <code>A @ (B @ v)</code> instead of <code>A @ B @ v</code> when v is a vector or an array of smaller size.</li>
+</ul>
+<div id="38cabecd" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> timeit</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.random.randn(<span class="dv">1000</span>, <span class="dv">1000</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.random.randn(<span class="dv">1000</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> np.allclose(A <span class="op">@</span> B <span class="op">@</span> v, A <span class="op">@</span> (B <span class="op">@</span> v))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 1:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> B <span class="op">@</span> v, number<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'time for method 2:'</span>, timeit.timeit(<span class="kw">lambda</span>: A <span class="op">@</span> (B <span class="op">@</span> v), number<span class="op">=</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>time for method 1: 0.2400473749730736
-time for method 2: 0.004550582962110639</code></pre>
+<pre><code>time for method 1: 0.2908879171591252
+time for method 2: 0.0026229999493807554</code></pre>
 </div>
 </div>
 
