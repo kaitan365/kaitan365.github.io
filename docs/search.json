@@ -4,33 +4,33 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUse SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/blog_slurm.html",
     "href": "posts/blog_slurm.html",
-    "title": "Use SLURM Clusters for Python Jobs",
+    "title": "Using SLURM Clusters for Python Jobs",
     "section": "",
     "text": "High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I’ll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster."
   },
   {
     "objectID": "posts/blog_slurm.html#step-1-load-required-modules",
     "href": "posts/blog_slurm.html#step-1-load-required-modules",
-    "title": "Use SLURM Clusters for Python Jobs",
+    "title": "Using SLURM Clusters for Python Jobs",
     "section": "Step 1: Load Required Modules",
     "text": "Step 1: Load Required Modules\nOn many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:\nmodule load python/3.9.6"
   },
   {
     "objectID": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
     "href": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
-    "title": "Use SLURM Clusters for Python Jobs",
+    "title": "Using SLURM Clusters for Python Jobs",
     "section": "Step 2: Create a Virtual Environment",
     "text": "Step 2: Create a Virtual Environment\nIt’s good practice to create a virtual environment for your project to manage dependencies.\npython -m venv myenv\nsource myenv/bin/activate"
   },
   {
     "objectID": "posts/blog_slurm.html#step-3-install-required-packages",
     "href": "posts/blog_slurm.html#step-3-install-required-packages",
-    "title": "Use SLURM Clusters for Python Jobs",
+    "title": "Using SLURM Clusters for Python Jobs",
     "section": "Step 3: Install Required Packages",
     "text": "Step 3: Install Required Packages\nInstall the necessary Python packages using pip.\npip install numpy pandas scikit-learn matplotlib"
   },
@@ -72,30 +72,30 @@
   {
     "objectID": "posts/bloc_efficient_compute.html",
     "href": "posts/bloc_efficient_compute.html",
-    "title": "Write efficient Python code",
+    "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.21936645894311368\ntime for method 2: 0.016158042009919882"
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2875330001115799\ntime for method 2: 0.013125125085934997"
   },
   {
     "objectID": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
     "href": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
-    "title": "Write efficient Python code",
+    "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.21936645894311368\ntime for method 2: 0.016158042009919882"
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.2875330001115799\ntime for method 2: 0.013125125085934997"
   },
   {
     "objectID": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
     "href": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
-    "title": "Write efficient Python code",
+    "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Avoid large matrix multiplication",
-    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.2080372921191156\ntime for method 2: 0.022312749875709414"
+    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.26508399983868003\ntime for method 2: 0.018454917008057237"
   },
   {
     "objectID": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
     "href": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
-    "title": "Write efficient Python code",
+    "title": "Accelerating Your Python Code: Tips for Faster Performance",
     "section": "Prioritize the order of matrix multiplication",
-    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.20598312513902783\ntime for method 2: 0.0014271670952439308"
+    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.2742931661196053\ntime for method 2: 0.0030677500180900097"
   },
   {
     "objectID": "index.html",
