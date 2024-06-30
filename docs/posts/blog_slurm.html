@@ -9,7 +9,7 @@
 <meta name="author" content="Kai Tan">
 <meta name="dcterms.date" content="2024-04-01">
 
-<title>Use Rutgers HPC Cluster – Kai Tan</title>
+<title>Use SLURM Clusters for Python Jobs – Kai Tan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -122,7 +156,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#intro-to-rutgers-hpc-cluster" id="toc-intro-to-rutgers-hpc-cluster" class="nav-link active" data-scroll-target="#intro-to-rutgers-hpc-cluster">Intro to Rutgers HPC Cluster</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#setting-up-your-environment" id="toc-setting-up-your-environment" class="nav-link" data-scroll-target="#setting-up-your-environment">Setting Up Your Environment</a>
+  <ul class="collapse">
+  <li><a href="#step-1-load-required-modules" id="toc-step-1-load-required-modules" class="nav-link" data-scroll-target="#step-1-load-required-modules">Step 1: Load Required Modules</a></li>
+  <li><a href="#step-2-create-a-virtual-environment" id="toc-step-2-create-a-virtual-environment" class="nav-link" data-scroll-target="#step-2-create-a-virtual-environment">Step 2: Create a Virtual Environment</a></li>
+  <li><a href="#step-3-install-required-packages" id="toc-step-3-install-required-packages" class="nav-link" data-scroll-target="#step-3-install-required-packages">Step 3: Install Required Packages</a></li>
+  </ul></li>
+  <li><a href="#writing-your-python-script" id="toc-writing-your-python-script" class="nav-link" data-scroll-target="#writing-your-python-script">Writing Your Python Script</a></li>
+  <li><a href="#creating-a-slurm-job-script" id="toc-creating-a-slurm-job-script" class="nav-link" data-scroll-target="#creating-a-slurm-job-script">Creating a SLURM Job Script</a></li>
+  <li><a href="#submitting-the-job" id="toc-submitting-the-job" class="nav-link" data-scroll-target="#submitting-the-job">Submitting the Job</a></li>
+  <li><a href="#monitoring-the-job" id="toc-monitoring-the-job" class="nav-link" data-scroll-target="#monitoring-the-job">Monitoring the Job</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -131,10 +177,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Use Rutgers HPC Cluster</h1>
+<h1 class="title">Use SLURM Clusters for Python Jobs</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Blog</div>
+    <div class="quarto-category">SLURM</div>
     <div class="quarto-category">HPC</div>
+    <div class="quarto-category">Python</div>
   </div>
   </div>
 
@@ -164,9 +211,84 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="intro-to-rutgers-hpc-cluster" class="level1">
-<h1>Intro to Rutgers HPC Cluster</h1>
-<p>This blog aims to give an quick overview of how to use the Rutgers HPC cluster. To be added.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I’ll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster.</p>
+</section>
+<section id="setting-up-your-environment" class="level1">
+<h1>Setting Up Your Environment</h1>
+<p>Before submitting jobs to a SLURM cluster, ensure that your Python environment is correctly set up. This includes installing the necessary libraries and ensuring that your Python scripts are ready to run.</p>
+<section id="step-1-load-required-modules" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-load-required-modules">Step 1: Load Required Modules</h2>
+<p>On many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.9.6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-create-a-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-a-virtual-environment">Step 2: Create a Virtual Environment</h2>
+<p>It’s good practice to create a virtual environment for your project to manage dependencies.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> venv myenv</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> myenv/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-install-required-packages" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-install-required-packages">Step 3: Install Required Packages</h2>
+<p>Install the necessary Python packages using <code>pip</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install numpy pandas scikit-learn matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="writing-your-python-script" class="level1">
+<h1>Writing Your Python Script</h1>
+<p>Create a Python script for your job. Here’s an example <code>script.py</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> load_iris(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> LogisticRegression(random_state<span class="op">=</span><span class="dv">0</span>).fit(X, y)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>clf.predict(X[:<span class="dv">2</span>, :])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>clf.predict_proba(X[:<span class="dv">2</span>, :])</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>clf.score(X, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="creating-a-slurm-job-script" class="level1">
+<h1>Creating a SLURM Job Script</h1>
+<p>To submit your Python job to the SLURM scheduler, you need to create a job script. Here’s an example <code>job.sh</code> script:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --job-name=my_python_job   # Job name</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --output=job_output_%j.txt # Output file</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --error=job_error_%j.txt   # Error file</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --ntasks=1                 # Number of tasks (1 for serial jobs)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=01:00:00            # Time limit hrs:min:sec</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=1G                   # Memory limit</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary module</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.9.6</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate virtual environment</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> myenv/bin/activate</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the Python script</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="submitting-the-job" class="level1">
+<h1>Submitting the Job</h1>
+<p>Submit the job script to the SLURM scheduler using the <code>sbatch</code> command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> job.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="monitoring-the-job" class="level1">
+<h1>Monitoring the Job</h1>
+<p>You can monitor the status of your job using the <code>squeue</code> command:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> your_username</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To view the output and error files, use <code>cat</code> or <code>less</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> job_output_<span class="op">&lt;</span>job_id<span class="op">&gt;</span>.txt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> job_error_<span class="op">&lt;</span>job_id<span class="op">&gt;</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>Using SLURM to manage Python jobs on an HPC cluster can significantly enhance your computational efficiency and resource management. By following the steps outlined in this guide, you can easily set up and run your Python scripts on a SLURM cluster. Happy computing!</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><a href="https://slurm.schedmd.com/documentation.html">SLURM Documentation</a></li>
+<li><a href="https://docs.python.org/3/">Python Documentation</a></li>
+</ul>
 
 
 </section>

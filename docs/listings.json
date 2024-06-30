@@ -2,8 +2,8 @@
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/blog1.html",
-      "/posts/blog2.html"
+      "/posts/bloc_efficient_compute.html",
+      "/posts/blog_slurm.html"
     ]
   }
 ]

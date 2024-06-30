@@ -4,49 +4,35 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUse Rutgers HPC Cluster\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nWrite efficient Python code\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUse SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Kai Tan",
+    "objectID": "posts/blog_slurm.html",
+    "href": "posts/blog_slurm.html",
+    "title": "Use SLURM Clusters for Python Jobs",
     "section": "",
-    "text": "Welcome to my website! I’m a 5th-year Ph.D. student in Department of Statistics at Rutgers University. I am very fortunate to have Pierre C. Bellec as my advisor. Prior to my Ph.D. journey, I earned two master’s degrees in Statistics from University of Kentucky and East China Normal University, and a bachelor’s degree in Mathematics and Economics from Central China Normal University."
+    "text": "High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I’ll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster."
   },
   {
-    "objectID": "index.html#recent-news",
-    "href": "index.html#recent-news",
-    "title": "Kai Tan",
-    "section": "Recent news",
-    "text": "Recent news\n\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: Paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions accepted in NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+    "objectID": "posts/blog_slurm.html#step-1-load-required-modules",
+    "href": "posts/blog_slurm.html#step-1-load-required-modules",
+    "title": "Use SLURM Clusters for Python Jobs",
+    "section": "Step 1: Load Required Modules",
+    "text": "Step 1: Load Required Modules\nOn many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:\nmodule load python/3.9.6"
   },
   {
-    "objectID": "index.html#contact-me",
-    "href": "index.html#contact-me",
-    "title": "Kai Tan",
-    "section": "Contact me",
-    "text": "Contact me\nkai.tan@rutgers.edu\nDepartment of Statistics\nRutgers University\n477 Hill Center, Busch Campus\n110 Frelinghuysen Road\nPiscataway, NJ 08854"
+    "objectID": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
+    "href": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
+    "title": "Use SLURM Clusters for Python Jobs",
+    "section": "Step 2: Create a Virtual Environment",
+    "text": "Step 2: Create a Virtual Environment\nIt’s good practice to create a virtual environment for your project to manage dependencies.\npython -m venv myenv\nsource myenv/bin/activate"
   },
   {
-    "objectID": "posts/blog2.html",
-    "href": "posts/blog2.html",
-    "title": "Use Rutgers HPC Cluster",
-    "section": "",
-    "text": "Intro to Rutgers HPC Cluster\nThis blog aims to give an quick overview of how to use the Rutgers HPC cluster. To be added."
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
-  },
-  {
-    "objectID": "teaching.html#independent-instructor",
-    "href": "teaching.html#independent-instructor",
-    "title": "Teaching",
-    "section": "",
-    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
+    "objectID": "posts/blog_slurm.html#step-3-install-required-packages",
+    "href": "posts/blog_slurm.html#step-3-install-required-packages",
+    "title": "Use SLURM Clusters for Python Jobs",
+    "section": "Step 3: Install Required Packages",
+    "text": "Step 3: Install Required Packages\nInstall the necessary Python packages using pip.\npip install numpy pandas scikit-learn matplotlib"
   },
   {
     "objectID": "research.html",
@@ -70,38 +56,66 @@
     "text": "Publications\n\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. \nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998."
   },
   {
-    "objectID": "posts/blog1.html",
-    "href": "posts/blog1.html",
-    "title": "Write efficient Python code",
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.20621375006157905\ntime for method 2: 0.017127083032391965"
+    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
   },
   {
-    "objectID": "posts/blog1.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
-    "href": "posts/blog1.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
-    "title": "Write efficient Python code",
+    "objectID": "teaching.html#independent-instructor",
+    "href": "teaching.html#independent-instructor",
+    "title": "Teaching",
     "section": "",
-    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.20621375006157905\ntime for method 2: 0.017127083032391965"
+    "text": "Probability and Stochastic Processes Review (Summer 2022)\n(review course for first-year PhD qualifying exam)\n\n\n\n\nSTAT 592: Theory of Probability (PhD core course) (Fall 2021)\nSTAT 401: Basic Statistics For Research (Spring 2021)\nSTAT 211: Statistics I (Spring 2021)\nSTAT 401: Basic Statistics For Research (Fall 2020)\nSTAT 211: Statistics I (Fall 2020)"
   },
   {
-    "objectID": "posts/blog1.html#avoid-large-matrix-multiplication",
-    "href": "posts/blog1.html#avoid-large-matrix-multiplication",
+    "objectID": "posts/bloc_efficient_compute.html",
+    "href": "posts/bloc_efficient_compute.html",
+    "title": "Write efficient Python code",
+    "section": "",
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.21936645894311368\ntime for method 2: 0.016158042009919882"
+  },
+  {
+    "objectID": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "href": "posts/bloc_efficient_compute.html#use-broadcasting-to-avoid-creating-a-diagonal-matrix",
+    "title": "Write efficient Python code",
+    "section": "",
+    "text": "- Use A * v instead of A @ np.diag(v)\n- Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n\ntime for method 1: 0.21936645894311368\ntime for method 2: 0.016158042009919882"
+  },
+  {
+    "objectID": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
+    "href": "posts/bloc_efficient_compute.html#avoid-large-matrix-multiplication",
     "title": "Write efficient Python code",
     "section": "Avoid large matrix multiplication",
-    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.19951483292970806\ntime for method 2: 0.028284332947805524"
+    "text": "Avoid large matrix multiplication\n- Use np.sum(A * B.T) instead of np.trace(A @ B)\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n\ntime for method 1: 0.2080372921191156\ntime for method 2: 0.022312749875709414"
   },
   {
-    "objectID": "posts/blog1.html#prioritize-the-order-of-matrix-multiplication",
-    "href": "posts/blog1.html#prioritize-the-order-of-matrix-multiplication",
+    "objectID": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
+    "href": "posts/bloc_efficient_compute.html#prioritize-the-order-of-matrix-multiplication",
     "title": "Write efficient Python code",
     "section": "Prioritize the order of matrix multiplication",
-    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.21710574999451637\ntime for method 2: 0.0016295830719172955"
+    "text": "Prioritize the order of matrix multiplication\n- Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.20598312513902783\ntime for method 2: 0.0014271670952439308"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kai Tan",
     "section": "",
-    "text": "About this site"
+    "text": "Welcome to my website! I’m a 5th-year Ph.D. student in Department of Statistics at Rutgers University. I am very fortunate to have Pierre C. Bellec as my advisor. Prior to my Ph.D. journey, I earned two master’s degrees in Statistics from University of Kentucky and East China Normal University, and a bachelor’s degree in Mathematics and Economics from Central China Normal University."
+  },
+  {
+    "objectID": "index.html#recent-news",
+    "href": "index.html#recent-news",
+    "title": "Kai Tan",
+    "section": "Recent news",
+    "text": "Recent news\n\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: Paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions accepted in NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+  },
+  {
+    "objectID": "index.html#contact-me",
+    "href": "index.html#contact-me",
+    "title": "Kai Tan",
+    "section": "Contact me",
+    "text": "Contact me\nkai.tan@rutgers.edu\nDepartment of Statistics\nRutgers University\n477 Hill Center, Busch Campus\n110 Frelinghuysen Road\nPiscataway, NJ 08854"
   }
 ]
