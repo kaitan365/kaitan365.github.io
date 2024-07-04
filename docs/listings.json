@@ -3,6 +3,7 @@
     "listing": "/posts.html",
     "items": [
       "/posts/blog_efficient_compute.html",
+      "/posts/building_neural_network_with_pytorch.html",
       "/posts/blog_slurm.html"
     ]
   }

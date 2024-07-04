@@ -4,70 +4,14 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nBuilding a Neural Network with PyTorch\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/blog_slurm.html",
-    "href": "posts/blog_slurm.html",
-    "title": "Using SLURM Clusters for Python Jobs",
+    "objectID": "posts/building_neural_network_with_pytorch.html",
+    "href": "posts/building_neural_network_with_pytorch.html",
+    "title": "Building a Neural Network with PyTorch",
     "section": "",
-    "text": "High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I’ll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster."
-  },
-  {
-    "objectID": "posts/blog_slurm.html#step-1-load-required-modules",
-    "href": "posts/blog_slurm.html#step-1-load-required-modules",
-    "title": "Using SLURM Clusters for Python Jobs",
-    "section": "Step 1: Load Required Modules",
-    "text": "Step 1: Load Required Modules\nOn many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:\nmodule load python/3.9.6"
-  },
-  {
-    "objectID": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
-    "href": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
-    "title": "Using SLURM Clusters for Python Jobs",
-    "section": "Step 2: Create a Virtual Environment",
-    "text": "Step 2: Create a Virtual Environment\nIt’s good practice to create a virtual environment for your project to manage dependencies.\npython -m venv myenv\nsource myenv/bin/activate"
-  },
-  {
-    "objectID": "posts/blog_slurm.html#step-3-install-required-packages",
-    "href": "posts/blog_slurm.html#step-3-install-required-packages",
-    "title": "Using SLURM Clusters for Python Jobs",
-    "section": "Step 3: Install Required Packages",
-    "text": "Step 3: Install Required Packages\nInstall the necessary Python packages using pip.\npip install numpy pandas scikit-learn matplotlib"
-  },
-  {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. confidence interval for prediction), to improve the reliability of statistical machine learning methods."
-  },
-  {
-    "objectID": "research.html#preprints",
-    "href": "research.html#preprints",
-    "title": "Research",
-    "section": "Preprints",
-    "text": "Preprints\n\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order).\narXiv preprint: 2404.17856\nCorrected generalized cross-validation for finite ensembles of penalized estimators\nPierre C. Bellec, Jin-Hong Du, Takuya Koriyama, Pratik Patil, Kai Tan (2023) (alphabetical order).\narXiv preprint: 2310.01374 [Code]"
-  },
-  {
-    "objectID": "research.html#publications",
-    "href": "research.html#publications",
-    "title": "Research",
-    "section": "Publications",
-    "text": "Publications\n\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. \nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998."
-  },
-  {
-    "objectID": "teaching.html",
-    "href": "teaching.html",
-    "title": "Teaching",
-    "section": "",
-    "text": "Term\nCourse Title\nCourse Level\n\n\n\n\nFall 2024\nLinear Algebra and Calculus\nFirst-year Master\n\n\nSummer 2022\nProbability and Stochastic Processes\nfirst-year PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nCourse Title\nCourse Level\n\n\n\n\nSpring 2024\nSTAT 597 Data Wrangling\nMaster\n\n\nFall 2022\nSTAT 592 Theory of Probability\nPhD\n\n\nSpring 2021\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nSpring 2021\nSTAT 211 Statistics I\nUndergraduate\n\n\nFall 2020\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nFall 2020\nSTAT 211 Statistics I\nUndergraduate"
-  },
-  {
-    "objectID": "teaching.html#independent-instructor",
-    "href": "teaching.html#independent-instructor",
-    "title": "Teaching",
-    "section": "",
-    "text": "Term\nCourse Title\nCourse Level\n\n\n\n\nFall 2024\nLinear Algebra and Calculus\nFirst-year Master\n\n\nSummer 2022\nProbability and Stochastic Processes\nfirst-year PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nCourse Title\nCourse Level\n\n\n\n\nSpring 2024\nSTAT 597 Data Wrangling\nMaster\n\n\nFall 2022\nSTAT 592 Theory of Probability\nPhD\n\n\nSpring 2021\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nSpring 2021\nSTAT 211 Statistics I\nUndergraduate\n\n\nFall 2020\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nFall 2020\nSTAT 211 Statistics I\nUndergraduate"
+    "text": "Introduction\nIn this blog post, we will explore how to build a neural network using PyTorch. PyTorch is a powerful and flexible deep learning framework that makes it easy to define, train, and evaluate neural networks. We will cover the following steps:\n\nSetting up the environment\nDefining the neural network\nPreparing the data\nTraining the network\nEvaluating the network\n\n\n\nSetting Up the Environment\nFirst, let’s ensure that we have PyTorch installed. You can install PyTorch using pip:\npip install torch torchvision\n\n\nDefining the Neural Network\nNext, we will define a simple neural network with five layers. Each hidden layer will use the ReLU activation function.\n\nimport torch\nimport torch.nn as nn\nimport torch.optim as optim\n\nclass NeuralNetwork(nn.Module):\n    def __init__(self, input_size):\n        super(NeuralNetwork, self).__init__()\n        self.fc1 = nn.Linear(input_size, 64)\n        self.fc2 = nn.Linear(64, 32)\n        self.fc3 = nn.Linear(32, 16)\n        self.fc4 = nn.Linear(16, 8)\n        self.fc5 = nn.Linear(8, 1)\n        \n    def forward(self, x):\n        x = torch.relu(self.fc1(x))\n        x = torch.relu(self.fc2(x))\n        x = torch.relu(self.fc3(x))\n        x = torch.relu(self.fc4(x))\n        x = self.fc5(x)\n        return x\n\n\n\nPreparing the Data\nFor this example, we will create a simple dataset. In a real-world scenario, you would use a dataset from a file or an online source.\n\nimport pandas as pd\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import mean_squared_error, r2_score\n\n# Dummy DataFrame for demonstration purposes\ndata = {\n    'feature1': [1, 2, 3, 4, 5],\n    'feature2': [5, 4, 3, 2, 1],\n    'target': [1, 3, 2, 5, 4]\n}\ndf = pd.DataFrame(data)\n\n# Data preparation\nX = df[['feature1', 'feature2']].values\ny = df['target'].values\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\nscaler = StandardScaler()\nX_train = scaler.fit_transform(X_train)\nX_test = scaler.transform(X_test)\n\n# Convert data to PyTorch tensors\nX_train_tensor = torch.tensor(X_train, dtype=torch.float32)\nX_test_tensor = torch.tensor(X_test, dtype=torch.float32)\ny_train_tensor = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)\ny_test_tensor = torch.tensor(y_test, dtype=torch.float32).view(-1, 1)\n\n\n\nTraining the Network\nNow, let’s define the training function and train our neural network.\n\ndef train_nn(model, criterion, optimizer, X_train, y_train, epochs=100, batch_size=2):\n    dataset = torch.utils.data.TensorDataset(X_train, y_train)\n    dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True)\n    for epoch in range(epochs):\n        model.train()\n        for batch_X, batch_y in dataloader:\n            optimizer.zero_grad()\n            outputs = model(batch_X)\n            loss = criterion(outputs, batch_y)\n            loss.backward()\n            optimizer.step()\n\n# Initialize and train the neural network\ninput_size = X_train.shape[1]\nnn_model = NeuralNetwork(input_size)\ncriterion = nn.MSELoss()\noptimizer = optim.Adam(nn_model.parameters(), lr=0.01)\n\ntrain_nn(nn_model, criterion, optimizer, X_train_tensor, y_train_tensor, epochs=100, batch_size=2)\n\n\n\nEvaluating the Network\nAfter training, we need to evaluate our network’s performance on the test set.\n\n# Evaluate the model\nnn_model.eval()\nwith torch.no_grad():\n    y_pred_nn = nn_model(X_test_tensor).numpy()\n\nmse_nn = mean_squared_error(y_test, y_pred_nn)\nr2_nn = r2_score(y_test, y_pred_nn)\n\nprint(f'MSE (Neural Network): {mse_nn}')\nprint(f'R2 (Neural Network): {r2_nn}')\n\nMSE (Neural Network): 3.292425297941236\nR2 (Neural Network): nan\n\n\n/Users/kt536/Library/Python/3.12/lib/python/site-packages/sklearn/metrics/_regression.py:996: UndefinedMetricWarning:\n\nR^2 score is not well-defined with less than two samples.\n\n\n\n\n\nVisualizing the Network\nFinally, let’s visualize the network using torchviz.\nfrom torchviz import make_dot\nfrom IPython.display import Image\n\ndummy_input = torch.randn(1, input_size)\noutput = nn_model(dummy_input)\nvis_graph = make_dot(output, params=dict(nn_model.named_parameters()))\nvis_graph.format = 'png'\nvis_graph.render('neural_network_visualization')\n\nImage(filename='neural_network_visualization.png')\n\n\nConclusion\nIn this blog post, we covered the basics of building a neural network using PyTorch. We went through setting up the environment, defining the neural network, preparing the data, training the network, and evaluating its performance. PyTorch provides a flexible and intuitive framework for developing deep learning models, making it a popular choice for researchers and practitioners alike.\nFeel free to experiment with different architectures, hyperparameters, and datasets to further enhance your understanding and build more complex models.\nHappy coding!"
   },
   {
     "objectID": "posts/blog_efficient_compute.html",
@@ -98,6 +42,69 @@
     "text": "Prioritize the order of matrix multiplication\n\nUse A @ (B @ v) instead of A @ B @ v when v is a vector or an array of smaller size.\n\n\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n\ntime for method 1: 0.1941463330294937\ntime for method 2: 0.0012861250434070826"
   },
   {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Term\nCourse Title\nCourse Level\n\n\n\n\nFall 2024\nLinear Algebra and Calculus\nFirst-year Master\n\n\nSummer 2022\nProbability and Stochastic Processes\nfirst-year PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nCourse Title\nCourse Level\n\n\n\n\nSpring 2024\nSTAT 597 Data Wrangling\nMaster\n\n\nFall 2022\nSTAT 592 Theory of Probability\nPhD\n\n\nSpring 2021\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nSpring 2021\nSTAT 211 Statistics I\nUndergraduate\n\n\nFall 2020\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nFall 2020\nSTAT 211 Statistics I\nUndergraduate"
+  },
+  {
+    "objectID": "teaching.html#independent-instructor",
+    "href": "teaching.html#independent-instructor",
+    "title": "Teaching",
+    "section": "",
+    "text": "Term\nCourse Title\nCourse Level\n\n\n\n\nFall 2024\nLinear Algebra and Calculus\nFirst-year Master\n\n\nSummer 2022\nProbability and Stochastic Processes\nfirst-year PhD\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTerm\nCourse Title\nCourse Level\n\n\n\n\nSpring 2024\nSTAT 597 Data Wrangling\nMaster\n\n\nFall 2022\nSTAT 592 Theory of Probability\nPhD\n\n\nSpring 2021\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nSpring 2021\nSTAT 211 Statistics I\nUndergraduate\n\n\nFall 2020\nSTAT 401 Basic Statistics For Research\nUndergraduate level\n\n\nFall 2020\nSTAT 211 Statistics I\nUndergraduate"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. confidence interval for prediction), to improve the reliability of statistical machine learning methods."
+  },
+  {
+    "objectID": "research.html#preprints",
+    "href": "research.html#preprints",
+    "title": "Research",
+    "section": "Preprints",
+    "text": "Preprints\n\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order).\narXiv preprint: 2404.17856\nCorrected generalized cross-validation for finite ensembles of penalized estimators\nPierre C. Bellec, Jin-Hong Du, Takuya Koriyama, Pratik Patil, Kai Tan (2023) (alphabetical order).\narXiv preprint: 2310.01374 [Code]"
+  },
+  {
+    "objectID": "research.html#publications",
+    "href": "research.html#publications",
+    "title": "Research",
+    "section": "Publications",
+    "text": "Publications\n\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. \nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998."
+  },
+  {
+    "objectID": "posts/blog_slurm.html",
+    "href": "posts/blog_slurm.html",
+    "title": "Using SLURM Clusters for Python Jobs",
+    "section": "",
+    "text": "High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I’ll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster."
+  },
+  {
+    "objectID": "posts/blog_slurm.html#step-1-load-required-modules",
+    "href": "posts/blog_slurm.html#step-1-load-required-modules",
+    "title": "Using SLURM Clusters for Python Jobs",
+    "section": "Step 1: Load Required Modules",
+    "text": "Step 1: Load Required Modules\nOn many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:\nmodule load python/3.9.6"
+  },
+  {
+    "objectID": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
+    "href": "posts/blog_slurm.html#step-2-create-a-virtual-environment",
+    "title": "Using SLURM Clusters for Python Jobs",
+    "section": "Step 2: Create a Virtual Environment",
+    "text": "Step 2: Create a Virtual Environment\nIt’s good practice to create a virtual environment for your project to manage dependencies.\npython -m venv myenv\nsource myenv/bin/activate"
+  },
+  {
+    "objectID": "posts/blog_slurm.html#step-3-install-required-packages",
+    "href": "posts/blog_slurm.html#step-3-install-required-packages",
+    "title": "Using SLURM Clusters for Python Jobs",
+    "section": "Step 3: Install Required Packages",
+    "text": "Step 3: Install Required Packages\nInstall the necessary Python packages using pip.\npip install numpy pandas scikit-learn matplotlib"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Kai Tan",
@@ -109,7 +116,7 @@
     "href": "index.html#recent-news",
     "title": "Kai Tan",
     "section": "Recent news",
-    "text": "Recent news\n\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: Paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions accepted in NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+    "text": "Recent news\n\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: Paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions accepted to NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
   },
   {
     "objectID": "index.html#contact-me",
