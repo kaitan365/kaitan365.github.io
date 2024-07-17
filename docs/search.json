@@ -60,7 +60,7 @@
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. confidence interval for prediction), to improve the reliability of statistical machine learning methods."
+    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
   },
   {
     "objectID": "research.html#preprints",
