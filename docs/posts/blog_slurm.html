@@ -169,6 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#creating-a-slurm-job-script" id="toc-creating-a-slurm-job-script" class="nav-link" data-scroll-target="#creating-a-slurm-job-script">Creating a SLURM Job Script</a></li>
   <li><a href="#submitting-the-job" id="toc-submitting-the-job" class="nav-link" data-scroll-target="#submitting-the-job">Submitting the Job</a></li>
   <li><a href="#monitoring-the-job" id="toc-monitoring-the-job" class="nav-link" data-scroll-target="#monitoring-the-job">Monitoring the Job</a></li>
+  <li><a href="#optimize-resource-usage" id="toc-optimize-resource-usage" class="nav-link" data-scroll-target="#optimize-resource-usage">Optimize Resource Usage</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -280,6 +281,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To view the output and error files, use <code>cat</code> or <code>less</code>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> job_output_<span class="op">&lt;</span>job_id<span class="op">&gt;</span>.txt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> job_error_<span class="op">&lt;</span>job_id<span class="op">&gt;</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="optimize-resource-usage" class="level1">
+<h1>Optimize Resource Usage</h1>
+<p>Use <code>seff &lt;job_id&gt;</code> to check the resources your job used. Adjust your future requests to avoid over-allocating. Request only what you need to ensure efficient use of shared resources for everyone.</p>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
