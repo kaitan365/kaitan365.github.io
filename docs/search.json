@@ -60,14 +60,14 @@
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
+    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
   },
   {
     "objectID": "research.html#preprints",
     "href": "research.html#preprints",
     "title": "Research",
     "section": "Preprints",
-    "text": "Preprints\n\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order).\narXiv preprint: 2404.17856\nFréchet sufficient variable selection with graphical structure among predictors.\nJiaying Weng \\(^*\\) , Kai Tan \\(^*\\), Cheng Wang and Zhou Yu (2023) (\\(^*\\)=equal contribution)."
+    "text": "Preprints\n\nPrecise Asymptotics of Bagging Regularized M-estimators\nTakuya Koriyama, Pratik Patil, Jin-Hong Du, Kai Tan, Pierre C. Bellec (2024)\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order)\nFréchet sufficient variable selection with graphical structure among predictors.\nJiaying Weng \\(^*\\) , Kai Tan \\(^*\\) (\\(^*\\)=equal contribution), Cheng Wang and Zhou Yu (2023)"
   },
   {
     "objectID": "research.html#publications",
@@ -116,7 +116,7 @@
     "href": "index.html#recent-news",
     "title": "Kai Tan",
     "section": "Recent news",
-    "text": "Recent news\n\n[Aug. 2024]: The paper Corrected generalized cross-validation for finite ensembles of penalized estimators is accepted to the Journal of the Royal Statistical Society, Series B (Statistical Methodology).\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: The paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions is accepted to NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+    "text": "Recent news\n\n[Sep. 2024]: The paper “Estimating Generalization Performance Along the Trajectory of Proximal SGD in Robust Regression” is accepted to NeurIPS 2024.\n[Aug. 2024]: The paper Corrected generalized cross-validation for finite ensembles of penalized estimators is accepted to the Journal of the Royal Statistical Society, Series B (Statistical Methodology).\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: The paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions is accepted to NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
   },
   {
     "objectID": "index.html#contact-me",
