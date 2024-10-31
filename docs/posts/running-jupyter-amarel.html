@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kai Tan">
+<meta name="dcterms.date" content="2024-10-31">
 
-<title>My Blog – Kai Tan</title>
+<title>Running Jupyter Notebooks on Amarel’s GPU Nodes – Kai Tan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,67 +102,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -138,7 +114,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Kai Tan</span>
     </a>
   </div>
@@ -149,21 +125,21 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -178,21 +154,60 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Amarel">Amarel <span class="quarto-category-count">(1)</span></div><div class="category" data-category="GPU">GPU <span class="quarto-category-count">(1)</span></div><div class="category" data-category="HPC">HPC <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Jupyter">Jupyter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(3)</span></div><div class="category" data-category="SLURM">SLURM <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#step-1-ssh-into-amarel" id="toc-step-1-ssh-into-amarel" class="nav-link" data-scroll-target="#step-1-ssh-into-amarel">Step 1: SSH into Amarel</a></li>
+  <li><a href="#step-2-start-an-interactive-session-on-a-gpu-node" id="toc-step-2-start-an-interactive-session-on-a-gpu-node" class="nav-link" data-scroll-target="#step-2-start-an-interactive-session-on-a-gpu-node">Step 2: Start an Interactive Session on a GPU Node</a>
+  <ul class="collapse">
+  <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation:</a></li>
+  </ul></li>
+  <li><a href="#step-3-start-jupyter-notebook-server" id="toc-step-3-start-jupyter-notebook-server" class="nav-link" data-scroll-target="#step-3-start-jupyter-notebook-server">Step 3: Start Jupyter Notebook Server</a>
+  <ul class="collapse">
+  <li><a href="#important" id="toc-important" class="nav-link" data-scroll-target="#important">Important:</a></li>
+  </ul></li>
+  <li><a href="#step-4-set-up-ssh-port-forwarding" id="toc-step-4-set-up-ssh-port-forwarding" class="nav-link" data-scroll-target="#step-4-set-up-ssh-port-forwarding">Step 4: Set Up SSH Port Forwarding</a>
+  <ul class="collapse">
+  <li><a href="#explanation-1" id="toc-explanation-1" class="nav-link" data-scroll-target="#explanation-1">Explanation:</a></li>
+  </ul></li>
+  <li><a href="#step-5-access-jupyter-notebook-from-your-browser" id="toc-step-5-access-jupyter-notebook-from-your-browser" class="nav-link" data-scroll-target="#step-5-access-jupyter-notebook-from-your-browser">Step 5: Access Jupyter Notebook from Your Browser</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Blog</h1>
-</div>
+<h1 class="title">Running Jupyter Notebooks on Amarel’s GPU Nodes</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Amarel</div>
+    <div class="quarto-category">GPU</div>
+    <div class="quarto-category">HPC</div>
+    <div class="quarto-category">Jupyter</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kai Tan </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 31, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -202,101 +217,80 @@ window.Quarto = {
 </header>
 
 
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This tutorial provides a step-by-step guide on running a Jupyter Notebook on Amarel’s GPU nodes at Rutgers. Follow the instructions below to set up your Jupyter environment and access it from your local machine.</p>
+</section>
+<section id="step-1-ssh-into-amarel" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-ssh-into-amarel">Step 1: SSH into Amarel</h2>
+<p>Start by opening your terminal and connecting to Amarel using SSH. Replace <code>&lt;netid&gt;</code> with your actual NetID:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>netid<span class="op">&gt;</span>@amarel.rutgers.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-2-start-an-interactive-session-on-a-gpu-node" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-start-an-interactive-session-on-a-gpu-node">Step 2: Start an Interactive Session on a GPU Node</h2>
+<p>Once logged into Amarel, initiate an interactive session on a GPU node by running:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-N</span> 1 <span class="at">--gres</span><span class="op">=</span>gpu:1 <span class="at">--partition</span><span class="op">=</span>cgpu <span class="at">--mem</span><span class="op">=</span>4G <span class="at">--time</span><span class="op">=</span>02:00:00 <span class="at">--pty</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="explanation" class="level3">
+<h3 class="anchored" data-anchor-id="explanation">Explanation:</h3>
+<ul>
+<li><strong><code>-N 1</code></strong>: Requests 1 node.</li>
+<li><strong><code>--gres=gpu:1</code></strong>: Allocates 1 GPU.</li>
+<li><strong><code>--partition=gpu</code></strong>: Specifies the GPU partition.</li>
+<li><strong><code>--mem=4G</code></strong>: Requests 4GB of memory.</li>
+<li><strong><code>--time=02:00:00</code></strong>: Allocates 2 hours for the session.</li>
+<li><strong><code>--pty bash</code></strong>: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session.</li>
+</ul>
+</section>
+</section>
+<section id="step-3-start-jupyter-notebook-server" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-start-jupyter-notebook-server">Step 3: Start Jupyter Notebook Server</h2>
+<p>Within the interactive session, start the Jupyter Notebook server with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook <span class="at">--no-browser</span> <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--port</span><span class="op">=</span>8889</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="important" class="level3">
+<h3 class="anchored" data-anchor-id="important">Important:</h3>
+<ul>
+<li>Ensure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> use /projects/community/modulefiles</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load anaconda/2024.06-ts840</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Note the node your job runs on (e.g., <code>gpu123</code>).</li>
+</ul>
+</section>
+</section>
+<section id="step-4-set-up-ssh-port-forwarding" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-set-up-ssh-port-forwarding">Step 4: Set Up SSH Port Forwarding</h2>
+<p>To connect your local machine to the Jupyter Notebook server running on Amarel, open a NEW terminal and set up an SSH tunnel:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-L</span> 9000:<span class="op">&lt;</span>node_name<span class="op">&gt;</span>:8889 <span class="op">&lt;</span>netid<span class="op">&gt;</span>@amarel.hpc.rutgers.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Replace <code>&lt;node_name&gt;</code> with the node name from the interactive session (e.g., <code>gpu123</code>).</li>
+<li>Replace <code>&lt;netid&gt;</code> with your actual NetID.</li>
+</ul>
+<section id="explanation-1" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-1">Explanation:</h3>
+<ul>
+<li><strong><code>-L 9000:&lt;node_name&gt;:8889</code></strong>: Forwards the port <code>8889</code> from Amarel’s compute node to <code>localhost:9000</code> on your local machine.</li>
+</ul>
+</section>
+</section>
+<section id="step-5-access-jupyter-notebook-from-your-browser" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-access-jupyter-notebook-from-your-browser">Step 5: Access Jupyter Notebook from Your Browser</h2>
+<p>Open your web browser and enter:</p>
+<pre><code>localhost:9000</code></pre>
+<p>This will open the Jupyter Notebook interface that is running on Amarel’s compute node.</p>
+<ul>
+<li>If you are prompted for a token, copy the full URL or token from the terminal where your Jupyter Notebook is running.</li>
+<li>You can now create or upload notebooks and run them on the GPU resources provided.</li>
+</ul>
+</section>
+<section id="acknowledgments" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
+<p>This tutorial was adapted from the guidance provided by Robert Palmere, Senior Scientist at the Office of Advanced Research Computing (OARC) at Rutgers University. I greatly appreciate the help from Robert.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-title-sort" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Amarel,GPU,HPC,Jupyter" data-listing-date-sort="1730347200000" data-listing-file-modified-sort="1730406588737" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="353" data-listing-title-sort="Running Jupyter Notebooks on Amarel's GPU Nodes" data-listing-filename-sort="running-jupyter-amarel.qmd">
-<td>
-<span class="listing-date">Oct 31, 2024</span>
-</td>
-<td>
-<a href="./posts/running-jupyter-amarel.html" class="title listing-title">Running Jupyter Notebooks on Amarel’s GPU Nodes</a>
-</td>
-<td>
-<span class="listing-author">Kai Tan</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Python" data-listing-date-sort="1714536000000" data-listing-file-modified-sort="1719722297632" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="203" data-listing-title-sort="Accelerating Your Python Code: Tips for Faster Performance" data-listing-filename-sort="blog_efficient_compute.qmd">
-<td>
-<span class="listing-date">May 1, 2024</span>
-</td>
-<td>
-<a href="./posts/blog_efficient_compute.html" class="title listing-title">Accelerating Your Python Code: Tips for Faster Performance</a>
-</td>
-<td>
-<span class="listing-author">Kai Tan</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="Python" data-listing-date-sort="1714536000000" data-listing-file-modified-sort="1720069137273" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="656" data-listing-title-sort="Building a Neural Network with PyTorch" data-listing-filename-sort="building_neural_network_with_pytorch.qmd">
-<td>
-<span class="listing-date">May 1, 2024</span>
-</td>
-<td>
-<a href="./posts/building_neural_network_with_pytorch.html" class="title listing-title">Building a Neural Network with PyTorch</a>
-</td>
-<td>
-<span class="listing-author">Kai Tan</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="SLURM,HPC,Python" data-listing-date-sort="1711944000000" data-listing-file-modified-sort="1726322700663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="428" data-listing-title-sort="Using SLURM Clusters for Python Jobs" data-listing-filename-sort="blog_slurm.qmd">
-<td>
-<span class="listing-date">Apr 1, 2024</span>
-</td>
-<td>
-<a href="./posts/blog_slurm.html" class="title listing-title">Using SLURM Clusters for Python Jobs</a>
-</td>
-<td>
-<span class="listing-author">Kai Tan</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
