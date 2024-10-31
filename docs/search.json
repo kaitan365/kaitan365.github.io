@@ -60,7 +60,7 @@
     "href": "posts/running-jupyter-amarel.html#step-5-access-jupyter-notebook-from-your-browser",
     "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
     "section": "Step 5: Access Jupyter Notebook from Your Browser",
-    "text": "Step 5: Access Jupyter Notebook from Your Browser\nOpen your web browser and enter:\nlocalhost:9000\nThis will open the Jupyter Notebook interface that is running on Amarel’s compute node.\n\nIf you are prompted for a token, copy the full URL or token from the terminal where your Jupyter Notebook is running.\nYou can now create or upload notebooks and run them on the GPU resources provided."
+    "text": "Step 5: Access Jupyter Notebook from Your Browser\nOpen your web browser and enter:\nlocalhost:9000\nThis will open the Jupyter Notebook interface that is running on Amarel’s compute node.\n\nIf you are prompted for a token, copy the token from the terminal where your Jupyter Notebook is running.\nYou can now create or upload notebooks and run them on the GPU resources provided."
   },
   {
     "objectID": "posts/running-jupyter-amarel.html#acknowledgments",
