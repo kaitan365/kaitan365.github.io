@@ -159,15 +159,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
   <li><a href="#step-1-ssh-into-amarel" id="toc-step-1-ssh-into-amarel" class="nav-link" data-scroll-target="#step-1-ssh-into-amarel">Step 1: SSH into Amarel</a></li>
   <li><a href="#step-2-start-an-interactive-session-on-a-gpu-node" id="toc-step-2-start-an-interactive-session-on-a-gpu-node" class="nav-link" data-scroll-target="#step-2-start-an-interactive-session-on-a-gpu-node">Step 2: Start an Interactive Session on a GPU Node</a>
   <ul class="collapse">
   <li><a href="#explanation" id="toc-explanation" class="nav-link" data-scroll-target="#explanation">Explanation:</a></li>
   </ul></li>
-  <li><a href="#step-3-start-jupyter-notebook-server" id="toc-step-3-start-jupyter-notebook-server" class="nav-link" data-scroll-target="#step-3-start-jupyter-notebook-server">Step 3: Start Jupyter Notebook Server</a>
-  <ul class="collapse">
-  <li><a href="#important" id="toc-important" class="nav-link" data-scroll-target="#important">Important:</a></li>
-  </ul></li>
+  <li><a href="#step-3-start-jupyter-notebook-server" id="toc-step-3-start-jupyter-notebook-server" class="nav-link" data-scroll-target="#step-3-start-jupyter-notebook-server">Step 3: Start Jupyter Notebook Server</a></li>
   <li><a href="#step-4-set-up-ssh-port-forwarding" id="toc-step-4-set-up-ssh-port-forwarding" class="nav-link" data-scroll-target="#step-4-set-up-ssh-port-forwarding">Step 4: Set Up SSH Port Forwarding</a>
   <ul class="collapse">
   <li><a href="#explanation-1" id="toc-explanation-1" class="nav-link" data-scroll-target="#explanation-1">Explanation:</a></li>
@@ -221,6 +219,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This tutorial provides a step-by-step guide on running a Jupyter Notebook on Amarel’s GPU nodes at Rutgers. Follow the instructions below to set up your Jupyter environment and access it from your local machine.</p>
 </section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ul>
+<li><p>You need access to the Rutgers Amarel cluster, you can request access at <a href="https://oarc.rutgers.edu/amarel-cluster-access-request/">OARC website</a>.</p></li>
+<li><p>You need to use VPN to connect to the Rutgers network if you are off-campus.</p></li>
+</ul>
+</section>
 <section id="step-1-ssh-into-amarel" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-ssh-into-amarel">Step 1: SSH into Amarel</h2>
 <p>Start by opening your terminal and connecting to Amarel using SSH. Replace <code>&lt;netid&gt;</code> with your actual NetID:</p>
@@ -229,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-2-start-an-interactive-session-on-a-gpu-node" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-start-an-interactive-session-on-a-gpu-node">Step 2: Start an Interactive Session on a GPU Node</h2>
 <p>Once logged into Amarel, initiate an interactive session on a GPU node by running:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-N</span> 1 <span class="at">--gres</span><span class="op">=</span>gpu:1 <span class="at">--partition</span><span class="op">=</span>cgpu <span class="at">--mem</span><span class="op">=</span>4G <span class="at">--time</span><span class="op">=</span>02:00:00 <span class="at">--pty</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-N</span> 1 <span class="at">--gres</span><span class="op">=</span>gpu:1 <span class="at">--partition</span><span class="op">=</span>gpu <span class="at">--mem</span><span class="op">=</span>4G <span class="at">--time</span><span class="op">=</span>02:00:00 <span class="at">--pty</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="explanation" class="level3">
 <h3 class="anchored" data-anchor-id="explanation">Explanation:</h3>
 <ul>
@@ -244,19 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-3-start-jupyter-notebook-server" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-start-jupyter-notebook-server">Step 3: Start Jupyter Notebook Server</h2>
-<p>Within the interactive session, start the Jupyter Notebook server with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook <span class="at">--no-browser</span> <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--port</span><span class="op">=</span>8889</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="important" class="level3">
-<h3 class="anchored" data-anchor-id="important">Important:</h3>
-<ul>
-<li>Ensure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> use /projects/community/modulefiles</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load anaconda/2024.06-ts840</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Note the node your job runs on (e.g., <code>gpu123</code>).</li>
-</ul>
-</section>
+<p>Ensure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> use /projects/community/modulefiles</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load anaconda/2024.06-ts840</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Start the Jupyter Notebook server with:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> notebook <span class="at">--no-browser</span> <span class="at">--ip</span><span class="op">=</span>0.0.0.0 <span class="at">--port</span><span class="op">=</span>8889</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the prompted message, note the node on which your job is running (e.g., <code>gpu123</code>).</p>
 </section>
 <section id="step-4-set-up-ssh-port-forwarding" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-set-up-ssh-port-forwarding">Step 4: Set Up SSH Port Forwarding</h2>

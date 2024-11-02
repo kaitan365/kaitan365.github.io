@@ -28,6 +28,13 @@
     "text": "This tutorial provides a step-by-step guide on running a Jupyter Notebook on Amarel’s GPU nodes at Rutgers. Follow the instructions below to set up your Jupyter environment and access it from your local machine."
   },
   {
+    "objectID": "posts/running-jupyter-amarel.html#prerequisites",
+    "href": "posts/running-jupyter-amarel.html#prerequisites",
+    "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n\nYou need access to the Rutgers Amarel cluster, you can request access at OARC website.\nYou need to use VPN to connect to the Rutgers network if you are off-campus."
+  },
+  {
     "objectID": "posts/running-jupyter-amarel.html#step-1-ssh-into-amarel",
     "href": "posts/running-jupyter-amarel.html#step-1-ssh-into-amarel",
     "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
@@ -39,14 +46,14 @@
     "href": "posts/running-jupyter-amarel.html#step-2-start-an-interactive-session-on-a-gpu-node",
     "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
     "section": "Step 2: Start an Interactive Session on a GPU Node",
-    "text": "Step 2: Start an Interactive Session on a GPU Node\nOnce logged into Amarel, initiate an interactive session on a GPU node by running:\nsrun -N 1 --gres=gpu:1 --partition=cgpu --mem=4G --time=02:00:00 --pty bash\n\nExplanation:\n\n-N 1: Requests 1 node.\n--gres=gpu:1: Allocates 1 GPU.\n--partition=gpu: Specifies the GPU partition.\n--mem=4G: Requests 4GB of memory.\n--time=02:00:00: Allocates 2 hours for the session.\n--pty bash: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session."
+    "text": "Step 2: Start an Interactive Session on a GPU Node\nOnce logged into Amarel, initiate an interactive session on a GPU node by running:\nsrun -N 1 --gres=gpu:1 --partition=gpu --mem=4G --time=02:00:00 --pty bash\n\nExplanation:\n\n-N 1: Requests 1 node.\n--gres=gpu:1: Allocates 1 GPU.\n--partition=gpu: Specifies the GPU partition.\n--mem=4G: Requests 4GB of memory.\n--time=02:00:00: Allocates 2 hours for the session.\n--pty bash: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session."
   },
   {
     "objectID": "posts/running-jupyter-amarel.html#step-3-start-jupyter-notebook-server",
     "href": "posts/running-jupyter-amarel.html#step-3-start-jupyter-notebook-server",
     "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
     "section": "Step 3: Start Jupyter Notebook Server",
-    "text": "Step 3: Start Jupyter Notebook Server\nWithin the interactive session, start the Jupyter Notebook server with:\njupyter notebook --no-browser --ip=0.0.0.0 --port=8889\n\nImportant:\n\nEnsure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by\n\nmodule use /projects/community/modulefiles\nmodule load anaconda/2024.06-ts840\n\nNote the node your job runs on (e.g., gpu123)."
+    "text": "Step 3: Start Jupyter Notebook Server\nEnsure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by\nmodule use /projects/community/modulefiles\nmodule load anaconda/2024.06-ts840\nStart the Jupyter Notebook server with:\njupyter notebook --no-browser --ip=0.0.0.0 --port=8889\nIn the prompted message, note the node on which your job is running (e.g., gpu123)."
   },
   {
     "objectID": "posts/running-jupyter-amarel.html#step-4-set-up-ssh-port-forwarding",
