@@ -79,23 +79,23 @@
   {
     "objectID": "research.html",
     "href": "research.html",
-    "title": "Research",
+    "title": "Kai Tan",
     "section": "",
-    "text": "My research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
+    "text": "Precise Asymptotics of Bagging Regularized M-estimators\nTakuya Koriyama, Pratik Patil, Jin-Hong Du, Kai Tan, Pierre C. Bellec (2024)\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order)\nFréchet sufficient variable selection with graphical structure among predictors.\nJiaying Weng \\(^*\\) , Kai Tan \\(^*\\) (\\(^*\\)=equal contribution), Cheng Wang and Zhou Yu (2023)"
   },
   {
     "objectID": "research.html#preprints",
     "href": "research.html#preprints",
-    "title": "Research",
-    "section": "Preprints",
-    "text": "Preprints\n\nPrecise Asymptotics of Bagging Regularized M-estimators\nTakuya Koriyama, Pratik Patil, Jin-Hong Du, Kai Tan, Pierre C. Bellec (2024)\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order)\nFréchet sufficient variable selection with graphical structure among predictors.\nJiaying Weng \\(^*\\) , Kai Tan \\(^*\\) (\\(^*\\)=equal contribution), Cheng Wang and Zhou Yu (2023)"
+    "title": "Kai Tan",
+    "section": "",
+    "text": "Precise Asymptotics of Bagging Regularized M-estimators\nTakuya Koriyama, Pratik Patil, Jin-Hong Du, Kai Tan, Pierre C. Bellec (2024)\nUncertainty quantification for iterative algorithms in linear models with application to early stopping\nPierre C. Bellec, Kai Tan (2024) (alphabetical order)\nFréchet sufficient variable selection with graphical structure among predictors.\nJiaying Weng \\(^*\\) , Kai Tan \\(^*\\) (\\(^*\\)=equal contribution), Cheng Wang and Zhou Yu (2023)"
   },
   {
     "objectID": "research.html#publications",
     "href": "research.html#publications",
-    "title": "Research",
+    "title": "Kai Tan",
     "section": "Publications",
-    "text": "Publications\n\nEstimating Generalization Performance Along the Trajectory of Proximal SGD in Robust Regression\nKai Tan, Pierre C. Bellec (2024)\nAccepted to Advances in Neural Information Processing Systems (NeurIPS 2024). [arXiv][Code]\nCorrected generalized cross-validation for finite ensembles of penalized estimators\nPierre C. Bellec, Jin-Hong Du, Takuya Koriyama, Pratik Patil, Kai Tan (2023) (alphabetical order).\nJournal of the Royal Statistical Society Series B, to appear. [arXiv] [Code]\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [arXiv] [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. [arXiv] [slides] [Code]\nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998.\nSummaries of three keynote lectures at the SAE-2018\nKai Tan, and Lyu Ni (2018).\nStatistical Theory and Related Fields 2.2 (2018): 215-218.\nInterview with Professor Danny Pfeffermann\nLyu Ni, and Kai Tan (2018).\nStatistical Theory and Related Fields 2.2 (2018): 219-221."
+    "text": "Publications\n\nEstimating Generalization Performance Along the Trajectory of Proximal SGD in Robust Regression\nKai Tan, Pierre C. Bellec (2024)\nAdvances in Neural Information Processing Systems (NeurIPS 2024). [arXiv][Code]\nCorrected generalized cross-validation for finite ensembles of penalized estimators\nPierre C. Bellec, Jin-Hong Du, Takuya Koriyama, Pratik Patil, Kai Tan (2023) (alphabetical order).\nJournal of the Royal Statistical Society Series B, to appear. [arXiv] [Code]\nMultinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions\nKai Tan, and Pierre C. Bellec (2023).\nAdvances in Neural Information Processing Systems 36 (2024). [arXiv] [Code]\nNoise covariance estimation in multi-task high-dimensional linear models\nKai Tan, Gabriel Romon, and Pierre C. Bellec (2023).\nBernoulli. 30.3 (2024): 1695-1722. [arXiv] [slides] [Code]\nVariable dependent partial dimension reduction\nLu Li, Kai Tan, Xuerong Meggie Wen, and Zhou Yu (2023) (alphabetical order).\nTEST. 32, 521–541 (2023).\nSparse SIR: optimal rates and adaptive estimation\nKai Tan, Lei Shi, and Zhou Yu (2020).\nThe Annals of Statistics 48.1 (2020): 64-85.\nCOM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data\nHuiming Zhang, Kai Tan and Bo Li (2018).\nFrontiers of Mathematics in China, 13(4), 967-998.\nSummaries of three keynote lectures at the SAE-2018\nKai Tan, and Lyu Ni (2018).\nStatistical Theory and Related Fields 2.2 (2018): 215-218.\nInterview with Professor Danny Pfeffermann\nLyu Ni, and Kai Tan (2018).\nStatistical Theory and Related Fields 2.2 (2018): 219-221."
   },
   {
     "objectID": "teaching.html",
@@ -172,7 +172,7 @@
     "href": "index.html",
     "title": "Kai Tan",
     "section": "",
-    "text": "Welcome to my website! I’m a 5th-year Ph.D. student in Department of Statistics at Rutgers University. I am very fortunate to have Pierre C. Bellec as my advisor. Prior to my Ph.D. journey, I earned two master’s degrees in Statistics from University of Kentucky and East China Normal University, and a bachelor’s degree in Mathematics and Economics (with honors) from Central China Normal University.\nI am currently on the job market for the 2024-2025 cycle and would welcome the opportunity to discuss potential positions. Please feel free to reach out via email at kai.tan@rutgers.edu."
+    "text": "Welcome to my website! I’m a 5th-year Ph.D. student in Department of Statistics at Rutgers University. I am very fortunate to have Pierre C. Bellec as my advisor. Prior to my Ph.D. journey, I earned two master’s degrees in Statistics from the University of Kentucky and East China Normal University, as well as a bachelor’s degree in Mathematics and Economics (with honors) from Central China Normal University.\nMy research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods.\nI am currently on the job market for the 2024-2025 cycle and would welcome the opportunity to discuss potential positions. Please feel free to reach out via email at kai.tan@rutgers.edu."
   },
   {
     "objectID": "index.html#recent-news",
