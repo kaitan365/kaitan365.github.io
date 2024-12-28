@@ -234,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-2-start-an-interactive-session-on-a-gpu-node" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-start-an-interactive-session-on-a-gpu-node">Step 2: Start an Interactive Session on a GPU Node</h2>
 <p>Once logged into Amarel, initiate an interactive session on a GPU node by running:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-N</span> 1 <span class="at">--gres</span><span class="op">=</span>gpu:1 <span class="at">--partition</span><span class="op">=</span>gpu <span class="at">--mem</span><span class="op">=</span>4G <span class="at">--time</span><span class="op">=</span>02:00:00 <span class="at">--pty</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">-N</span> 1 <span class="at">--gres</span><span class="op">=</span>gpu:1 <span class="at">--partition</span><span class="op">=</span>gpu <span class="at">--mem</span><span class="op">=</span>4G <span class="at">--time</span><span class="op">=</span>02:00:00 <span class="at">--constraint</span><span class="op">=</span>ampere <span class="at">--pty</span> bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="explanation" class="level3">
 <h3 class="anchored" data-anchor-id="explanation">Explanation:</h3>
 <ul>
@@ -243,6 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong><code>--partition=gpu</code></strong>: Specifies the GPU partition.</li>
 <li><strong><code>--mem=4G</code></strong>: Requests 4GB of memory.</li>
 <li><strong><code>--time=02:00:00</code></strong>: Allocates 2 hours for the session.</li>
+<li><strong><code>--constraint=ampere</code></strong>: Requests an Ampere GPU (e.g., NVIDIA A100).</li>
 <li><strong><code>--pty bash</code></strong>: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session.</li>
 </ul>
 </section>

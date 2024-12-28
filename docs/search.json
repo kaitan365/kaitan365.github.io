@@ -46,7 +46,7 @@
     "href": "posts/running-jupyter-amarel.html#step-2-start-an-interactive-session-on-a-gpu-node",
     "title": "Running Jupyter Notebooks on Amarel’s GPU Nodes",
     "section": "Step 2: Start an Interactive Session on a GPU Node",
-    "text": "Step 2: Start an Interactive Session on a GPU Node\nOnce logged into Amarel, initiate an interactive session on a GPU node by running:\nsrun -N 1 --gres=gpu:1 --partition=gpu --mem=4G --time=02:00:00 --pty bash\n\nExplanation:\n\n-N 1: Requests 1 node.\n--gres=gpu:1: Allocates 1 GPU.\n--partition=gpu: Specifies the GPU partition.\n--mem=4G: Requests 4GB of memory.\n--time=02:00:00: Allocates 2 hours for the session.\n--pty bash: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session."
+    "text": "Step 2: Start an Interactive Session on a GPU Node\nOnce logged into Amarel, initiate an interactive session on a GPU node by running:\nsrun -N 1 --gres=gpu:1 --partition=gpu --mem=4G --time=02:00:00 --constraint=ampere --pty bash\n\nExplanation:\n\n-N 1: Requests 1 node.\n--gres=gpu:1: Allocates 1 GPU.\n--partition=gpu: Specifies the GPU partition.\n--mem=4G: Requests 4GB of memory.\n--time=02:00:00: Allocates 2 hours for the session.\n--constraint=ampere: Requests an Ampere GPU (e.g., NVIDIA A100).\n--pty bash: Opens a bash shell in the allocated session. This command will allocate the requested resources and start an interactive session."
   },
   {
     "objectID": "posts/running-jupyter-amarel.html#step-3-start-jupyter-notebook-server",
