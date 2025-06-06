@@ -9,7 +9,7 @@
 <meta name="author" content="Kai Tan">
 <meta name="dcterms.date" content="2024-05-01">
 
-<title>Building a Neural Network with PyTorch – Kai Tan</title>
+<title>Learning PyTorch: Neural Networks – Kai Tan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -174,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Building a Neural Network with PyTorch</h1>
+<h1 class="title">Learning PyTorch: Neural Networks</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Python</div>
   </div>
@@ -225,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="defining-the-neural-network" class="level1">
 <h1>Defining the Neural Network</h1>
 <p>Next, we will define a simple neural network with five layers. Each hidden layer will use the ReLU activation function.</p>
-<div id="5d9aea59" class="cell" data-execution_count="1">
+<div id="fb09f264" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="preparing-the-data" class="level1">
 <h1>Preparing the Data</h1>
 <p>For this example, we will create a simple dataset. In a real-world scenario, you would use a dataset from a file or an online source.</p>
-<div id="cc8c0ce8" class="cell" data-execution_count="2">
+<div id="16d7a4a1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
@@ -298,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="training-the-network" class="level1">
 <h1>Training the Network</h1>
 <p>Now, let’s define the training function and train our neural network.</p>
-<div id="bd4f1176" class="cell" data-execution_count="3">
+<div id="e965a79f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the neural network model</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>input_size <span class="op">=</span> X_train.shape[<span class="dv">1</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> NeuralNetwork(input_size)</span>
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="evaluating-the-trained-network" class="level1">
 <h1>Evaluating the trained Network</h1>
 <p>After training, we need to evaluate our network’s performance on the test set.</p>
-<div id="fd083db8" class="cell" data-execution_count="4">
+<div id="50225b72" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">eval</span>()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
