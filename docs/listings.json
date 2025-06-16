@@ -2,9 +2,11 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/Pytorch_Logistic_Regression.html",
       "/posts/running-jupyter-amarel.html",
       "/posts/blog_efficient_compute.html",
       "/posts/PyTorch_Neural_Networks.html",
+      "/posts/Pytorch_dataloader.html",
       "/posts/PyTroch_Simple_Linear_Regression.html",
       "/posts/blog_slurm.html"
     ]

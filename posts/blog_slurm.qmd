@@ -1,0 +1,112 @@
+
+---
+title: "Using SLURM Clusters for Python Jobs"
+author: "Kai Tan"
+date: "2024-04-01"
+categories: [SLURM, HPC, Python]
+---
+
+# Introduction
+
+High-performance computing (HPC) clusters are essential for handling large-scale computations in various scientific and engineering fields. SLURM (Simple Linux Utility for Resource Management) is a widely-used workload manager designed for high-performance computing clusters. In this blog post, I'll guide you through the process of using SLURM to run Python jobs efficiently on an HPC cluster.
+
+# Setting Up Your Environment
+
+Before submitting jobs to a SLURM cluster, ensure that your Python environment is correctly set up. This includes installing the necessary libraries and ensuring that your Python scripts are ready to run.
+
+## Step 1: Load Required Modules
+
+On many HPC systems, you need to load specific modules before you can use certain software. For example, to load Python:
+
+```bash
+module load python/3.9.6
+```
+
+## Step 2: Create a Virtual Environment
+
+It's good practice to create a virtual environment for your project to manage dependencies.
+
+```bash
+python -m venv myenv
+source myenv/bin/activate
+```
+
+## Step 3: Install Required Packages
+
+Install the necessary Python packages using `pip`.
+
+```bash
+pip install numpy pandas scikit-learn matplotlib
+```
+
+# Writing Your Python Script
+
+Create a Python script for your job. Here’s an example `script.py`:
+
+```python
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+X, y = load_iris(return_X_y=True)
+clf = LogisticRegression(random_state=0).fit(X, y)
+clf.predict(X[:2, :])
+clf.predict_proba(X[:2, :])
+clf.score(X, y)
+```
+
+# Creating a SLURM Job Script
+
+To submit your Python job to the SLURM scheduler, you need to create a job script. Here’s an example `job.sh` script:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_python_job   # Job name
+#SBATCH --output=job_output_%j.txt # Output file
+#SBATCH --error=job_error_%j.txt   # Error file
+#SBATCH --ntasks=1                 # Number of tasks (1 for serial jobs)
+#SBATCH --time=01:00:00            # Time limit hrs:min:sec
+#SBATCH --mem=1G                   # Memory limit
+
+# Load the necessary module
+module load python/3.9.6
+
+# Activate virtual environment
+source myenv/bin/activate
+
+# Run the Python script
+python script.py
+```
+
+# Submitting the Job
+
+Submit the job script to the SLURM scheduler using the `sbatch` command:
+
+```bash
+sbatch job.sh
+```
+
+# Monitoring the Job
+
+You can monitor the status of your job using the `squeue` command:
+
+```bash
+squeue -u your_username
+```
+
+To view the output and error files, use `cat` or `less`:
+
+```bash
+cat job_output_<job_id>.txt
+cat job_error_<job_id>.txt
+```
+
+# Optimize Resource Usage
+Use `seff <job_id>` to check the resources your job used. Adjust your future requests to avoid over-allocating. Request only what you need to ensure efficient use of shared resources for everyone.
+
+# Conclusion
+
+Using SLURM to manage Python jobs on an HPC cluster can significantly enhance your computational efficiency and resource management. By following the steps outlined in this guide, you can easily set up and run your Python scripts on a SLURM cluster. Happy computing!
+
+# References
+
+- [SLURM Documentation](https://slurm.schedmd.com/documentation.html)
+- [Python Documentation](https://docs.python.org/3/)

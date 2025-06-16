@@ -1,0 +1,12 @@
+{
+  "hash": "c51488162ced655161d16676a67d6ebe",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Accelerating Your Python Code: Tips for Faster Performance\"\nauthor: \"Kai Tan\"\ndate: \"2024-05-01\"\ncategories: [Blog, coding]\nformat:\n  html:\n    code-fold: false\njupyter: python3\n---\n\n\n## Use broadcasting to avoid creating a diagonal matrix\n    - Use A * v instead of A @ np.diag(v)\n    - Use v[:, np.newaxis] * A instead of np.diag(v) @ A\n\n::: {#0407cd3f .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.all( A @ np.diag(v) == A * v )\nassert np.all( np.diag(v) @ A == v[:, np.newaxis] * A )\nprint('time for method 1:', timeit.timeit(lambda: A @ np.diag(v), number=10))\nprint('time for method 2:', timeit.timeit(lambda: A * v, number=10))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\ntime for method 1: 0.2875330001115799\ntime for method 2: 0.013125125085934997\n```\n:::\n:::\n\n\n## Avoid large matrix multiplication\n    - Use np.sum(A * B.T) instead of np.trace(A @ B)\n\n::: {#2a68250b .cell execution_count=2}\n``` {.python .cell-code}\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nassert np.isclose(np.trace(A @ B), np.sum(A * B.T))\nprint('time for method 1:', timeit.timeit(lambda: np.trace(A @ B), number=10))\nprint('time for method 2:', timeit.timeit(lambda: np.sum(A * B.T), number=10))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\ntime for method 1: 0.26508399983868003\ntime for method 2: 0.018454917008057237\n```\n:::\n:::\n\n\n## Prioritize the order of matrix multiplication\n    - Use A @ (B @ v) instead of A @ B @ v if v is a vector. \n\n::: {#9008dbac .cell execution_count=3}\n``` {.python .cell-code}\nimport numpy as np\nimport timeit\nA = np.random.randn(1000, 1000)\nB = np.random.randn(1000, 1000)\nv = np.random.randn(1000)\nassert np.allclose(A @ B @ v, A @ (B @ v))\nprint('time for method 1:', timeit.timeit(lambda: A @ B @ v, number=10))\nprint('time for method 2:', timeit.timeit(lambda: A @ (B @ v), number=10))\n```\n\n::: {.cell-output .cell-output-stdout}\n```\ntime for method 1: 0.2742931661196053\ntime for method 2: 0.0030677500180900097\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "bloc_efficient_compute_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

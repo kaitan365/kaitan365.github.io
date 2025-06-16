@@ -1,7 +1,61 @@
 ---
-title: "my_website"
+title: Kai Tan
+subtitle: kai.tan@rutgers.edu
+image: Kai_informs.jpg
+about:
+  template: marquee 
+  # trestles, solana, jolla, broadside, marquee
+  image-width: 15em
+  image-shape: round
+  links:
+    - icon: gScholar
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=Qqqeap8AAAAJ&hl=en
+    - icon: github
+      text: Github
+      href: https://github.com/kaitan365
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/kaitan365/
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/kaitan365
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Welcome to my website! I'm a 5th-year Ph.D. student in [Department of Statistics](https://statistics.rutgers.edu/) at [Rutgers University](https://newbrunswick.rutgers.edu/). I am very fortunate to have [Pierre C. Bellec](https://statweb.rutgers.edu/PCB71/) as my advisor. 
+My research interests span a wide range of areas in **Statistics** and **Machine Learning**, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, 
+I develop tools for **uncertainty quantification** of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods.
+
+<!-- **I am currently on the job market for the 2024-2025 cycle and would welcome the opportunity to discuss potential positions. Please feel free to reach out via email at kai.tan@rutgers.edu.** -->
+
+## Recent news
+
+* \[Nov. 2024\]: The paper [Uncertainty quantification for iterative algorithms in linear models with application to early stopping](https://arxiv.org/pdf/2404.17856) 
+has been invited for a major revision at the *Annals of Statistics*.
+
+* \[Sep. 2024\]: The paper [Estimating Generalization Performance Along the Trajectory of Proximal SGD in Robust Regression](https://arxiv.org/pdf/2410.02629) is accepted to 
+*NeurIPS 2024*.
+* \[Aug. 2024\]: The paper [Corrected generalized cross-validation for finite ensembles of penalized estimators
+](https://arxiv.org/pdf/2310.01374) is accepted to the 
+*Journal of the Royal Statistical Society, Series B (Statistical Methodology)*.
+
+* \[Jun. 2024\]: Presented a [poster](files/poster_ISTA.pdf) at [DIMACS Workshop on Modeling Randomness in Neural Network Training](https://rmt4ai.github.io/). 
+
+* \[Sep. 2023\]: The paper [Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions](https://papers.nips.cc/paper_files/paper/2023/file/e0ac27bf3327c9cb99cc5f548db4f73a-Paper-Conference.pdf) is accepted to *NeurIPS 2023*. 
+
+* \[May 2023\]: I am honored to receive the *Gold Medal* of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang's Special Birthdays. 
+
+* \[March 2023\]: I am honored to receive the 
+[IMS Hannan Graduate Student Travel Award](https://imstat.org/2023/04/22/2023-hannan-graduate-student-travel-award-recipients-announced/).
+
+* \[Jan. 2023\]: I am honored to receive the *Travel Award* at the 2023 Statistics Annual Winter Workshop titled "Modern Computational Statistics" hosted by the statistics department at the University of Florida.
+
+
+<!-- ## Contact me
+<kai.tan@rutgers.edu>\
+Department of Statistics\
+Rutgers University\
+477 Hill Center, Busch Campus\
+110 Frelinghuysen Road\
+Piscataway, NJ 08854 -->

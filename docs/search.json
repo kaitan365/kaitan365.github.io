@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 31, 2024\n\n\nRunning Jupyter Notebooks on Amarel’s GPU Nodes\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nLearning PyTorch: Neural Networks\n\n\nKai Tan\n\n\n\n\nApr 20, 2024\n\n\nLearning PyTorch: Simple Linear Regression\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 21, 2025\n\n\nPyTorch: Logistic Regression\n\n\nKai Tan\n\n\n\n\nOct 31, 2024\n\n\nRunning Jupyter Notebooks on Amarel’s GPU Nodes\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nLearning PyTorch: Neural Networks\n\n\nKai Tan\n\n\n\n\nApr 22, 2024\n\n\nA Practical Guide to PyTorch DataLoader\n\n\nKai Tan\n\n\n\n\nApr 20, 2024\n\n\nLearning PyTorch: Simple Linear Regression\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/blog_slurm.html",
@@ -250,5 +250,159 @@
     "title": "Kai Tan",
     "section": "Recent news",
     "text": "Recent news\n\n[Nov. 2024]: The paper Uncertainty quantification for iterative algorithms in linear models with application to early stopping has been invited for a major revision at the Annals of Statistics.\n[Sep. 2024]: The paper Estimating Generalization Performance Along the Trajectory of Proximal SGD in Robust Regression is accepted to NeurIPS 2024.\n[Aug. 2024]: The paper Corrected generalized cross-validation for finite ensembles of penalized estimators is accepted to the Journal of the Royal Statistical Society, Series B (Statistical Methodology).\n[Jun. 2024]: Presented a poster at DIMACS Workshop on Modeling Randomness in Neural Network Training.\n[Sep. 2023]: The paper Multinomial Logistic Regression: Asymptotic Normality on Null Covariates in High-Dimensions is accepted to NeurIPS 2023.\n[May 2023]: I am honored to receive the Gold Medal of student poster competition at the Conference on Recent Advances in Statistics and Data Science, with a Celebration of Professors Regina Liu and Cun-Hui Zhang’s Special Birthdays.\n[March 2023]: I am honored to receive the IMS Hannan Graduate Student Travel Award.\n[Jan. 2023]: I am honored to receive the Travel Award at the 2023 Statistics Annual Winter Workshop titled “Modern Computational Statistics” hosted by the statistics department at the University of Florida."
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html",
+    "href": "posts/Pytorch_dataloader.html",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "",
+    "text": "In PyTorch, the DataLoader is a powerful tool that lets you iterate over datasets efficiently. It handles batching, shuffling, and even multi-process data loading — all crucial for model training."
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#what-is-a-dataloader",
+    "href": "posts/Pytorch_dataloader.html#what-is-a-dataloader",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "",
+    "text": "In PyTorch, the DataLoader is a powerful tool that lets you iterate over datasets efficiently. It handles batching, shuffling, and even multi-process data loading — all crucial for model training."
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-1-create-a-custom-dataset",
+    "href": "posts/Pytorch_dataloader.html#step-1-create-a-custom-dataset",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 1: Create a Custom Dataset",
+    "text": "Step 1: Create a Custom Dataset\nStart by subclassing torch.utils.data.Dataset. Here’s an example where we simulate binary labels.\n\nimport torch\nfrom torch.utils.data import Dataset\n\nclass MyDataset(Dataset):\n    def __init__(self):\n        self.data = torch.arange(100)\n        self.labels = self.data % 2  # binary labels\n\n    def __len__(self):\n        return len(self.data)\n\n    def __getitem__(self, idx):\n        return self.data[idx], self.labels[idx]"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-2-use-dataloader-to-load-in-batches",
+    "href": "posts/Pytorch_dataloader.html#step-2-use-dataloader-to-load-in-batches",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 2: Use DataLoader to Load in Batches",
+    "text": "Step 2: Use DataLoader to Load in Batches\n\nfrom torch.utils.data import DataLoader\n\ndataset = MyDataset()\ndataloader = DataLoader(dataset, batch_size=10, shuffle=True)\n\nYou can now easily loop through the dataset in batches:\n\nfor batch_idx, (x, y) in enumerate(dataloader):\n    if batch_idx &lt; 2: \n        print(f\"Batch {batch_idx}\")\n        print(\"x:\", x)\n        print(\"y:\", y)\n        print(\"---\")\n\nBatch 0\nx: tensor([39, 59,  1, 31, 25, 13, 98, 43, 38,  8])\ny: tensor([1, 1, 1, 1, 1, 1, 0, 1, 0, 0])\n---\nBatch 1\nx: tensor([89, 88, 40, 93, 60, 68, 67, 24, 42, 15])\ny: tensor([1, 0, 0, 1, 0, 0, 1, 0, 0, 1])\n---"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-3-built-in-datasets-e.g.-mnist",
+    "href": "posts/Pytorch_dataloader.html#step-3-built-in-datasets-e.g.-mnist",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 3: Built-in Datasets (e.g. MNIST)",
+    "text": "Step 3: Built-in Datasets (e.g. MNIST)\nYou can also use built-in datasets from torchvision.\nfrom torchvision import datasets, transforms\n\ntransform = transforms.ToTensor()\nmnist_train = datasets.MNIST(root='./data', train=True, download=True, transform=transform)\n\ntrain_loader = DataLoader(mnist_train, batch_size=64, shuffle=True)\nPreview the first batch:\nimages, labels = next(iter(train_loader))\nprint(images.shape)  # [64, 1, 28, 28]"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-4-visualization-optional",
+    "href": "posts/Pytorch_dataloader.html#step-4-visualization-optional",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 4: Visualization (Optional)",
+    "text": "Step 4: Visualization (Optional)\n\nimport matplotlib.pyplot as plt\n\nfeature_index = 0  # e.g., Median Income\nplt.hist(features[:, feature_index].numpy(), bins=20, edgecolor='k')\nplt.title(\"Distribution of Feature: Median Income\")\nplt.xlabel(\"Value\")\nplt.ylabel(\"Frequency\")\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#common-dataloader-parameters",
+    "href": "posts/Pytorch_dataloader.html#common-dataloader-parameters",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Common DataLoader Parameters",
+    "text": "Common DataLoader Parameters\n\n\n\nParameter\nMeaning\n\n\n\n\nbatch_size\nNumber of samples per batch\n\n\nshuffle\nWhether to shuffle data at every epoch\n\n\nnum_workers\nNumber of subprocesses to use for data loading\n\n\ndrop_last\nDrop last batch if it’s smaller than batch_size\n\n\npin_memory\nSpeed up data transfer to GPU if using CUDA"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#reproducibility-tip",
+    "href": "posts/Pytorch_dataloader.html#reproducibility-tip",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Reproducibility Tip",
+    "text": "Reproducibility Tip\nTo make shuffling deterministic:\ng = torch.Generator()\ng.manual_seed(42)\n\ndataloader = DataLoader(dataset, batch_size=10, shuffle=True, generator=g)"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#conclusion",
+    "href": "posts/Pytorch_dataloader.html#conclusion",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "✅ Conclusion",
+    "text": "✅ Conclusion\nPyTorch’s DataLoader is a flexible and powerful abstraction for handling dataset loading. Whether you’re using built-in datasets or your own, DataLoader gives you:\n\nMini-batch loading\nShuffling for randomness\nParallelism with num_workers\n\nIn the next tutorial, we’ll cover using DataLoader with image folders and custom collate functions."
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#summary",
+    "href": "posts/Pytorch_dataloader.html#summary",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Summary",
+    "text": "Summary\nPyTorch’s DataLoader is a flexible and powerful abstraction for handling dataset loading. Whether you’re using built-in datasets or your own, DataLoader gives you:\n\nMini-batch loading\nShuffling for randomness\nParallelism with num_workers"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-3-use-a-real-world-dataset-california-housing",
+    "href": "posts/Pytorch_dataloader.html#step-3-use-a-real-world-dataset-california-housing",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 3: Use a Real-World Dataset (California Housing)",
+    "text": "Step 3: Use a Real-World Dataset (California Housing)\nYou can also use built-in datasets from torchvision.\n\nfrom sklearn.datasets import fetch_california_housing\nfrom sklearn.preprocessing import StandardScaler\nfrom torch.utils.data import TensorDataset\n\n# Load data\ncalifornia = fetch_california_housing()\nX = california.data[:1000]\ny = california.target[:1000]\n\n# Convert to tensors\nX_tensor = torch.tensor(X, dtype=torch.float32)\ny_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)\n\n# Wrap in a dataset\nreal_dataset = TensorDataset(X_tensor, y_tensor)\nreal_loader = DataLoader(real_dataset, batch_size=32, shuffle=True)\n\nPreview the first batch:\n\nfeatures, targets = next(iter(real_loader))\nprint(features.shape)  # [32, 8]\nprint(targets.shape)   # [32, 1]\n\ntorch.Size([32, 8])\ntorch.Size([32, 1])"
+  },
+  {
+    "objectID": "posts/Pytorch_dataloader.html#step-4-visualization",
+    "href": "posts/Pytorch_dataloader.html#step-4-visualization",
+    "title": "A Practical Guide to PyTorch DataLoader",
+    "section": "Step 4: Visualization",
+    "text": "Step 4: Visualization\n\nimport matplotlib.pyplot as plt\n\nfeature_index = 0  # e.g., Median Income\nplt.hist(features[:, feature_index].numpy(), bins=20, edgecolor='k')\nplt.title(\"Distribution of Feature: Median Income\")\nplt.xlabel(\"Value\")\nplt.ylabel(\"Frequency\")\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html",
+    "href": "posts/Pytorch_Logistic_Regression.html",
+    "title": "PyTorch: Logistic Regression",
+    "section": "",
+    "text": "The logistic regression model estimates the probability of the label \\(y\\) given the input \\(x\\) by:\n\\[\n\\mathbb{P}(y = 1) = \\sigma(w^\\top x + b)\n\\]\nHere:\n\n\\(x \\in \\mathbb{R}^d\\) is the input vector, \\(y \\in \\{0, 1\\}\\) is the binary label\n\n\\(w \\in \\mathbb{R}^d\\) is the weight vector, \\(b \\in \\mathbb{R}\\) is the bias (intercept)\n\n\\(\\sigma(z) = \\dfrac{1}{1 + e^{-z}} = \\dfrac{e^z}{1 + e^z}\\) is the sigmoid function"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#goal",
+    "href": "posts/Pytorch_Logistic_Regression.html#goal",
+    "title": "Logistic Regression with NumPy and PyTorch",
+    "section": "",
+    "text": "Learn how to implement logistic regression from scratch using NumPy, and compare it with PyTorch."
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#logistic-regression-model",
+    "href": "posts/Pytorch_Logistic_Regression.html#logistic-regression-model",
+    "title": "PyTorch: Logistic Regression",
+    "section": "",
+    "text": "The logistic regression model estimates the probability of the label \\(y\\) given the input \\(x\\) by:\n\\[\n\\mathbb{P}(y = 1) = \\sigma(w^\\top x + b)\n\\]\nHere:\n\n\\(x \\in \\mathbb{R}^d\\) is the input vector, \\(y \\in \\{0, 1\\}\\) is the binary label\n\n\\(w \\in \\mathbb{R}^d\\) is the weight vector, \\(b \\in \\mathbb{R}\\) is the bias (intercept)\n\n\\(\\sigma(z) = \\dfrac{1}{1 + e^{-z}} = \\dfrac{e^z}{1 + e^z}\\) is the sigmoid function"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#binary-cross-entropy-loss",
+    "href": "posts/Pytorch_Logistic_Regression.html#binary-cross-entropy-loss",
+    "title": "PyTorch: Logistic Regression",
+    "section": "Binary Cross-Entropy Loss",
+    "text": "Binary Cross-Entropy Loss\nThe loss function we minimize is the binary cross-entropy:\n\\[\nL(w, b) = -\\frac{1}{n} \\sum_{i=1}^n \\left[ y_i \\log(\\hat{y}_i) + (1 - y_i) \\log(1 - \\hat{y}_i) \\right]\n\\]\nHere:\n\n\\(n\\) is the number of training examples\n\\(y_i\\) is the true label for the \\(i\\)-th sample\n\\(\\hat{y}_i = \\sigma(w^\\top x_i + b)\\) is the predicted probability\n\n\nIntuition\n\nIf \\(y_i = \\hat{y}_i = 1\\) for all \\(i\\), the loss is 0 — perfect prediction.\nIf \\(y_i = \\hat{y}_i = 0\\) for all \\(i\\), the loss is also 0.\nIf \\(y_i = 1\\), \\(\\hat{y}_i = 0\\), the loss becomes infinite — the worst-case prediction."
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#deriving-the-gradient",
+    "href": "posts/Pytorch_Logistic_Regression.html#deriving-the-gradient",
+    "title": "PyTorch: Logistic Regression",
+    "section": "Deriving the Gradient",
+    "text": "Deriving the Gradient\nWe start with the individual loss for each sample:\n\\[\nL_i = -\\left[ y_i \\log(\\sigma(z_i)) + (1 - y_i) \\log(1 - \\sigma(z_i))\n\\right],\n\\]\nwhere \\(z_i = w^\\top x_i + b\\). Using the identity \\(\\frac{d\\sigma(z)}{dz} = \\sigma(z)(1 - \\sigma(z))\\), we obtain the gradient:\n\\[\\begin{align*}\n\\frac{\\partial L_i}{\\partial z_i}\n&= -\\left[ y_i \\frac{1}{\\sigma(z_i)} \\frac{\\partial \\sigma(z_i)}{\\partial z_i} + (1 - y_i) \\frac{-1}{1 - \\sigma(z_i)} \\frac{\\partial \\sigma(z_i)}{\\partial z_i} \\right]\\\\\n&= -\\left[ y_i \\bigl(1 - \\sigma(z_i)\\bigr) - (1 - y_i) \\sigma(z_i) \\right]\\\\\n&= \\sigma(z_i) - y_i\\\\\n&= \\hat{y}_i - y_i.\n\\end{align*}\\]\nBy the chain rule, we can compute the gradient of the loss w.r.t. the weights \\(w\\) and bias \\(b\\): \\[\\begin{align*}\n\\frac{\\partial L_i}{\\partial w} &= \\frac{\\partial L_i}{\\partial z_i} \\cdot \\frac{\\partial z_i}{\\partial w} = (\\hat y_i - y_i) x_i,\\\\\n\\frac{\\partial L_i}{\\partial b} &= \\frac{\\partial L_i}{\\partial z_i} \\cdot \\frac{\\partial z_i}{\\partial b} = (\\hat y_i - y_i).\n\\end{align*}\\]\nAveraging over all \\(n\\) samples,the gradients become:\n\\[\\begin{equation}\n\\frac{\\partial L}{\\partial w} = \\frac{1}{n} \\sum_{i=1}^n (\\hat{y}_i - y_i) x_i\n\\quad \\text{ and } \\quad\n\\frac{\\partial L}{\\partial b} = \\frac{1}{n} \\sum_{i=1}^n (\\hat{y}_i - y_i).\n\\end{equation}\\]"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#step-1-simulate-binary-classification-data",
+    "href": "posts/Pytorch_Logistic_Regression.html#step-1-simulate-binary-classification-data",
+    "title": "Logistic Regression with NumPy and PyTorch",
+    "section": "Step 1: Simulate Binary Classification Data",
+    "text": "Step 1: Simulate Binary Classification Data\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nnp.random.seed(0)\nn = 100\nX = np.random.randn(n, 2)\ntrue_w = np.array([2.0, -3.0])\nbias = 0.5\n\nlogits = X @ true_w + bias\nprobs = 1 / (1 + np.exp(-logits))\ny = (probs &gt; 0.5).astype(np.float32)\n\nplt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', edgecolor='k')\nplt.title(\"Synthetic Binary Classification Data\")\nplt.xlabel(\"x1\")\nplt.ylabel(\"x2\")\nplt.grid(True)\nplt.show()"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#step-2-logistic-regression-with-numpy",
+    "href": "posts/Pytorch_Logistic_Regression.html#step-2-logistic-regression-with-numpy",
+    "title": "PyTorch: Logistic Regression",
+    "section": "Step 2: Logistic Regression with NumPy",
+    "text": "Step 2: Logistic Regression with NumPy\n\ndef sigmoid(z):\n    return 1 / (1 + np.exp(-z))\n\ndef binary_cross_entropy(y_true, y_pred):\n    eps = 1e-7\n    return -np.mean(y_true * np.log(y_pred + eps) + (1 - y_true) * np.log(1 - y_pred + eps))\n\nw = np.zeros(2)\nb = 0.0\nlr = 0.1\n\nfor epoch in range(100):\n    z = X @ w + b\n    y_pred = sigmoid(z)\n    loss = binary_cross_entropy(y, y_pred)\n\n    dz = y_pred - y\n    dw = X.T @ dz / n\n    db = np.mean(dz)\n\n    w -= lr * dw\n    b -= lr * db\n\n    if epoch % 10 == 0:\n        print(f\"Epoch {epoch}, Loss: {loss:.4f}\")\nprint(\"==========================\")\nprint(f\"Final weights: {w}, bias: {b}\")\n# Final parameters: w, b\nx_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1\nx_vals = np.linspace(x_min, x_max, 100)\n\n# Solve for x2 on the decision boundary line: w1*x1 + w2*x2 + b = 0\n# =&gt; x2 = -(w1*x1 + b)/w2\ny_vals = -(w[0] * x_vals + b) / w[1]\n\n# Plot\nplt.figure(figsize=(6, 4))\nplt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', edgecolor='k')\nplt.plot(x_vals, y_vals, 'k--', label='Decision Boundary')\nplt.title(\"Logistic Regression Decision Boundary\")\nplt.xlabel(\"x1\")\nplt.ylabel(\"x2\")\nplt.legend()\nplt.grid(True)\nplt.show()\n\nEpoch 0, Loss: 0.6931\nEpoch 10, Loss: 0.5710\nEpoch 20, Loss: 0.4932\nEpoch 30, Loss: 0.4403\nEpoch 40, Loss: 0.4019\nEpoch 50, Loss: 0.3726\nEpoch 60, Loss: 0.3495\nEpoch 70, Loss: 0.3305\nEpoch 80, Loss: 0.3147\nEpoch 90, Loss: 0.3013\n==========================\nFinal weights: [ 1.05673617 -1.50856125], bias: 0.3215972984185849"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#step-3-logistic-regression-with-pytorch",
+    "href": "posts/Pytorch_Logistic_Regression.html#step-3-logistic-regression-with-pytorch",
+    "title": "PyTorch: Logistic Regression",
+    "section": "Step 3: Logistic Regression with PyTorch",
+    "text": "Step 3: Logistic Regression with PyTorch\n\nimport torch\nfrom torch import nn\n\nX_tensor = torch.tensor(X, dtype=torch.float32)\ny_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)\n\nmodel = nn.Sequential(\n    nn.Linear(2, 1),\n    nn.Sigmoid()\n)\n\nloss_fn = nn.BCELoss()\noptimizer = torch.optim.SGD(model.parameters(), lr=0.1)\n\nfor epoch in range(100):\n    # step 1: make prediction (forward pass)\n    y_pred = model(X_tensor)\n    # step 2: compute loss\n    loss = loss_fn(y_pred, y_tensor)\n    # step 3: clear old and compute current gradients\n    optimizer.zero_grad() # clear old gradients\n    loss.backward()       # compute current gradients\n    # step 4: update parameters\n    optimizer.step()\n\n    if epoch % 10 == 0:\n        print(f\"Epoch {epoch}, Loss: {loss.item():.4f}\")\n\nmodel_params = list(model.parameters())\nprint(\"==========================\")\nprint(f\"Final weights: {model_params[0].detach().numpy().flatten()}, bias: {model_params[1].item()}\")\n\nEpoch 0, Loss: 0.4559\nEpoch 10, Loss: 0.4123\nEpoch 20, Loss: 0.3799\nEpoch 30, Loss: 0.3547\nEpoch 40, Loss: 0.3345\nEpoch 50, Loss: 0.3179\nEpoch 60, Loss: 0.3038\nEpoch 70, Loss: 0.2917\nEpoch 80, Loss: 0.2812\nEpoch 90, Loss: 0.2719\n==========================\nFinal weights: [ 1.2496184 -1.6982503], bias: 0.3892728388309479"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#summary",
+    "href": "posts/Pytorch_Logistic_Regression.html#summary",
+    "title": "Logistic Regression with NumPy and PyTorch",
+    "section": "✅ Summary",
+    "text": "✅ Summary\nThis tutorial covered:\n\nMathematical foundation of logistic regression\nManual gradient derivation\nImplementation from scratch in NumPy\nEquivalent implementation using PyTorch\n\nTry modifying the code to add regularization or handle multiclass classification!"
+  },
+  {
+    "objectID": "posts/Pytorch_Logistic_Regression.html#step-1-data-generation",
+    "href": "posts/Pytorch_Logistic_Regression.html#step-1-data-generation",
+    "title": "PyTorch: Logistic Regression",
+    "section": "Step 1: Data Generation",
+    "text": "Step 1: Data Generation\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nnp.random.seed(0)\nn = 1000\nX = np.random.randn(n, 2)\ntrue_w = np.array([2.0, -3.0])\nbias = 0.5\n\nlogits = X @ true_w + bias\nprobs = 1 / (1 + np.exp(-logits))\ny = (probs &gt; 0.5).astype(np.float32)\n\nplt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', edgecolor='k')\nplt.title(\"Synthetic Binary Classification Data\")\nplt.xlabel(\"x1\")\nplt.ylabel(\"x2\")\nplt.grid(True)\nplt.show()"
   }
 ]

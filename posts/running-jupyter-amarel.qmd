@@ -1,0 +1,87 @@
+
+---
+title: "Running Jupyter Notebooks on Amarel's GPU Nodes"
+author: "Kai Tan"
+date: "2024-10-31"
+categories: [Amarel, GPU, HPC, Jupyter]
+format:
+  html:
+    toc: true
+---
+
+## Overview
+This tutorial provides a step-by-step guide on running a Jupyter Notebook on Amarel's GPU nodes at Rutgers. Follow the instructions below to set up your Jupyter environment and access it from your local machine.
+
+## Prerequisites
+- You need access to the Rutgers Amarel cluster, you can request access at [OARC website](https://oarc.rutgers.edu/amarel-cluster-access-request/).
+
+
+- You need to use VPN to connect to the Rutgers network if you are off-campus.
+
+## Step 1: SSH into Amarel
+Start by opening your terminal and connecting to Amarel using SSH. Replace `<netid>` with your actual NetID:
+
+```bash
+ssh <netid>@amarel.rutgers.edu
+```
+
+## Step 2: Start an Interactive Session on a GPU Node
+Once logged into Amarel, initiate an interactive session on a GPU node by running:
+
+```bash
+srun -N 1 --gres=gpu:1 --partition=gpu --mem=4G --time=02:00:00 --constraint=ampere --pty bash
+```
+
+### Explanation:
+- **`-N 1`**: Requests 1 node.
+- **`--gres=gpu:1`**: Allocates 1 GPU.
+- **`--partition=gpu`**: Specifies the GPU partition.
+- **`--mem=4G`**: Requests 4GB of memory.
+- **`--time=02:00:00`**: Allocates 2 hours for the session.
+- **`--constraint=ampere`**: Requests an Ampere GPU (e.g., NVIDIA A100).
+- **`--pty bash`**: Opens a bash shell in the allocated session.
+This command will allocate the requested resources and start an interactive session.
+
+## Step 3: Start Jupyter Notebook Server
+Ensure that Jupyter Notebook is installed in your Python environment on Amarel. You can use the community available Anaconda distribution by 
+```bash
+module use /projects/community/modulefiles
+module load anaconda/2024.06-ts840
+```
+
+Start the Jupyter Notebook server with:
+
+```bash
+jupyter notebook --no-browser --ip=0.0.0.0 --port=8889
+```
+
+In the prompted message, note the node on which your job is running (e.g., `gpu123`).
+
+## Step 4: Set Up SSH Port Forwarding
+To connect your local machine to the Jupyter Notebook server running on Amarel, open a NEW terminal and set up an SSH tunnel:
+
+```bash
+ssh -L 9000:<node_name>:8889 <netid>@amarel.hpc.rutgers.edu
+```
+
+- Replace `<node_name>` with the node name from the interactive session (e.g., `gpu123`).
+- Replace `<netid>` with your actual NetID.
+
+### Explanation:
+- **`-L 9000:<node_name>:8889`**: Forwards the port `8889` from Amarel's compute node to `localhost:9000` on your local machine.
+
+## Step 5: Access Jupyter Notebook from Your Browser
+Open your web browser and enter:
+
+```
+localhost:9000
+```
+
+This will open the Jupyter Notebook interface that is running on Amarel's compute node. 
+
+- If you are prompted for a token, copy the token from the terminal where your Jupyter Notebook is running.
+- You can now create or upload notebooks and run them on the GPU resources provided.
+
+## Acknowledgments
+This tutorial was adapted from the guidance provided by Robert Palmere, Senior Scientist at the Office of Advanced Research Computing (OARC) at Rutgers University. 
+I greatly appreciate the help from Robert. 

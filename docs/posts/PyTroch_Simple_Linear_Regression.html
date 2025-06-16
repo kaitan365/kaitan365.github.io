@@ -245,7 +245,7 @@ window.Quarto = {
 <li><span class="math inline">\(b_0 = 1\)</span> and <span class="math inline">\(w_0 = 2\)</span></li>
 <li><span class="math inline">\(x_i \sim N(0, 1)\)</span> and <span class="math inline">\(\varepsilon_i \sim N(0, 0.01)\)</span></li>
 </ul>
-<div id="823c89ea" class="cell" data-execution_count="1">
+<div id="80aac3e6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">42</span>)</span>
@@ -299,7 +299,7 @@ w \leftarrow w - \eta \frac{\partial L}{\partial w}\]</span> <span class="math d
 b \leftarrow b - \eta \frac{\partial L}{\partial b}
 \]</span></p></li>
 </ul>
-<div id="999a6d53" class="cell" data-execution_count="2">
+<div id="109ee468" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># initialization of weight and bias</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> rng.standard_normal(<span class="dv">1</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> rng.standard_normal(<span class="dv">1</span>)</span>
@@ -346,7 +346,7 @@ Final weight: [1.99588476]</code></pre>
 </section>
 <section id="solve-linear-regression-with-pytorch-autograd" class="level2">
 <h2 class="anchored" data-anchor-id="solve-linear-regression-with-pytorch-autograd">Solve Linear Regression with PyTorch (autograd)</h2>
-<div id="0835f99f" class="cell" data-execution_count="3">
+<div id="e74c9b66" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using pytorch</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
@@ -389,7 +389,7 @@ Final weight (PyTorch): tensor([1.9959], requires_grad=True)</code></pre>
 </section>
 <section id="solve-linear-regression-with-pytorch-autograd-loss-optimizer" class="level2">
 <h2 class="anchored" data-anchor-id="solve-linear-regression-with-pytorch-autograd-loss-optimizer">Solve Linear Regression with PyTorch (autograd + loss + optimizer)</h2>
-<div id="9dcbef78" class="cell" data-execution_count="4">
+<div id="fd3b1e86" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> torch.randn(<span class="dv">1</span>, requires_grad<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span>torch.<span class="bu">float</span>, device<span class="op">=</span>device)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>w <span class="op">=</span> torch.randn(<span class="dv">1</span>, requires_grad<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span>torch.<span class="bu">float</span>, device<span class="op">=</span>device)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -418,7 +418,7 @@ Final weight (PyTorch with optim): tensor([1.9959], requires_grad=True)</code></
 </section>
 <section id="object-oriented-programming" class="level2">
 <h2 class="anchored" data-anchor-id="object-oriented-programming">Object-oriented programming</h2>
-<div id="219b7f4c" class="cell" data-execution_count="5">
+<div id="2339af9c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -467,7 +467,7 @@ Final weight (class + PyTorch): 1.9958817958831787</code></pre>
 </section>
 <section id="create-linear-model-via-nn.sequential" class="level2">
 <h2 class="anchored" data-anchor-id="create-linear-model-via-nn.sequential">Create Linear Model via nn.Sequential</h2>
-<div id="6021cf6a" class="cell" data-execution_count="6">
+<div id="5cd00cfa" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n_epochs <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> nn.Sequential(nn.Linear(<span class="dv">1</span>, <span class="dv">1</span>)).to(device)</span>
@@ -508,7 +508,7 @@ Final weight (class + PyTorch): 1.9958817958831787</code></pre>
 </section>
 <section id="dataset-and-data-loader" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-and-data-loader">Dataset and Data Loader</h2>
-<div id="6f465f8d" class="cell" data-execution_count="7">
+<div id="51768d13" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset, TensorDataset</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> myDataset(Dataset):</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x, y):</span>
@@ -537,7 +537,7 @@ First item in train_data1: (tensor([0.4967]), tensor([2.1334]))</code></pre>
 </section>
 <section id="solve-linear-regression-with-dataset-and-data-loader" class="level2">
 <h2 class="anchored" data-anchor-id="solve-linear-regression-with-dataset-and-data-loader">Solve Linear Regression with Dataset and Data Loader</h2>
-<div id="418c1b43" class="cell" data-execution_count="8">
+<div id="98b12f19" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(train_data, batch_size<span class="op">=</span><span class="dv">50</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="fl">0.01</span></span>
@@ -567,7 +567,7 @@ First item in train_data1: (tensor([0.4967]), tensor([2.1334]))</code></pre>
 </section>
 <section id="evaluation-in-validation-set" class="level2">
 <h2 class="anchored" data-anchor-id="evaluation-in-validation-set">Evaluation in validation set</h2>
-<div id="0c887c2a" class="cell" data-execution_count="9">
+<div id="9e9a813c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> random_split</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> TensorDataset(x_tensor, y_tensor)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>train_dataset, val_dataset <span class="op">=</span> random_split(dataset, [<span class="dv">800</span>, <span class="dv">200</span>])</span>

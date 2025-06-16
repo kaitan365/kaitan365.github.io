@@ -2,19 +2,29 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  freeze: auto
+
 website:
-  title: "my_website"
+  title: "Kai Tan"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - research.qmd
+      - teaching.qmd
+    right:
+      -  href: posts.qmd
+         text: Blog
+  page-footer:
+    background: light # or `dark`
+    left: Copyright 2024, Kai Tan
+    # right: "Powered by Quarto"
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
+    # page-layout: full
 
 
