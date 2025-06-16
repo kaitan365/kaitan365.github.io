@@ -305,7 +305,7 @@ L_i = -\left[ y_i \log(\sigma(z_i)) + (1 - y_i) \log(1 - \sigma(z_i))
 </section>
 <section id="step-1-data-generation" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-data-generation">Step 1: Data Generation</h2>
-<div id="9fa1636f" class="cell" data-execution_count="1">
+<div id="e64b615f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -337,7 +337,7 @@ L_i = -\left[ y_i \log(\sigma(z_i)) + (1 - y_i) \log(1 - \sigma(z_i))
 </section>
 <section id="step-2-logistic-regression-with-numpy" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-logistic-regression-with-numpy">Step 2: Logistic Regression with NumPy</h2>
-<div id="db0cbf9f" class="cell" data-execution_count="2">
+<div id="f2d830a6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(z):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>z))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -409,7 +409,7 @@ Final weights: [ 1.05673617 -1.50856125], bias: 0.3215972984185849</code></pre>
 </section>
 <section id="step-3-logistic-regression-with-pytorch" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-logistic-regression-with-pytorch">Step 3: Logistic Regression with PyTorch</h2>
-<div id="db17c23a" class="cell" data-execution_count="3">
+<div id="0343e5f8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -442,18 +442,18 @@ Final weights: [ 1.05673617 -1.50856125], bias: 0.3215972984185849</code></pre>
 <span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"=========================="</span>)</span>
 <span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Final weights: </span><span class="sc">{</span>model_params[<span class="dv">0</span>]<span class="sc">.</span>detach()<span class="sc">.</span>numpy()<span class="sc">.</span>flatten()<span class="sc">}</span><span class="ss">, bias: </span><span class="sc">{</span>model_params[<span class="dv">1</span>]<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Epoch 0, Loss: 0.5677
-Epoch 10, Loss: 0.4898
-Epoch 20, Loss: 0.4366
-Epoch 30, Loss: 0.3983
-Epoch 40, Loss: 0.3691
-Epoch 50, Loss: 0.3462
-Epoch 60, Loss: 0.3275
-Epoch 70, Loss: 0.3120
-Epoch 80, Loss: 0.2987
-Epoch 90, Loss: 0.2873
+<pre><code>Epoch 0, Loss: 0.7885
+Epoch 10, Loss: 0.6298
+Epoch 20, Loss: 0.5292
+Epoch 30, Loss: 0.4631
+Epoch 40, Loss: 0.4170
+Epoch 50, Loss: 0.3831
+Epoch 60, Loss: 0.3570
+Epoch 70, Loss: 0.3362
+Epoch 80, Loss: 0.3191
+Epoch 90, Loss: 0.3047
 ==========================
-Final weights: [ 1.0765955 -1.6515726], bias: 0.3253193199634552</code></pre>
+Final weights: [ 1.1115352 -1.4488407], bias: 0.2900879681110382</code></pre>
 </div>
 </div>
 
