@@ -9,7 +9,7 @@
 <meta name="author" content="Kai Tan">
 <meta name="dcterms.date" content="2024-04-22">
 
-<title>A Practical Guide to PyTorch DataLoader – Kai Tan</title>
+<title>Intro to PyTorch DataLoader – Kai Tan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -174,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">A Practical Guide to PyTorch DataLoader</h1>
+<h1 class="title">Intro to PyTorch DataLoader</h1>
   <div class="quarto-categories">
     <div class="quarto-category">PyTorch</div>
     <div class="quarto-category">deep learning</div>
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="step-1-create-a-custom-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-create-a-custom-dataset">Step 1: Create a Custom Dataset</h2>
 <p>Start by subclassing <code>torch.utils.data.Dataset</code>. Here’s an example where we simulate binary labels.</p>
-<div id="d7b9e8be" class="cell" data-execution_count="1">
+<div id="488dd234" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> Dataset</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -235,14 +235,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="step-2-use-dataloader-to-load-in-batches" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-use-dataloader-to-load-in-batches">Step 2: Use DataLoader to Load in Batches</h2>
-<div id="73cb01fc" class="cell" data-execution_count="2">
+<div id="e2acfb24" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> MyDataset()</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dataloader <span class="op">=</span> DataLoader(dataset, batch_size<span class="op">=</span><span class="dv">10</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can now easily loop through the dataset in batches:</p>
-<div id="21510263" class="cell" data-execution_count="3">
+<div id="3330bb3f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> batch_idx, (x, y) <span class="kw">in</span> <span class="bu">enumerate</span>(dataloader):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> batch_idx <span class="op">&lt;</span> <span class="dv">2</span>: </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Batch </span><span class="sc">{</span>batch_idx<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -251,12 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"---"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Batch 0
-x: tensor([39, 59,  1, 31, 25, 13, 98, 43, 38,  8])
-y: tensor([1, 1, 1, 1, 1, 1, 0, 1, 0, 0])
+x: tensor([58, 82, 22, 98, 81, 68, 62, 24, 69, 20])
+y: tensor([0, 0, 0, 0, 1, 0, 0, 0, 1, 0])
 ---
 Batch 1
-x: tensor([89, 88, 40, 93, 60, 68, 67, 24, 42, 15])
-y: tensor([1, 0, 0, 1, 0, 0, 1, 0, 0, 1])
+x: tensor([77, 32, 52, 97, 41, 93, 27, 65, 33, 39])
+y: tensor([1, 0, 0, 1, 1, 1, 1, 1, 1, 1])
 ---</code></pre>
 </div>
 </div>
@@ -265,7 +265,7 @@ y: tensor([1, 0, 0, 1, 0, 0, 1, 0, 0, 1])
 <section id="step-3-use-a-real-world-dataset-california-housing" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-use-a-real-world-dataset-california-housing">Step 3: Use a Real-World Dataset (California Housing)</h2>
 <p>You can also use built-in datasets from <code>torchvision</code>.</p>
-<div id="43713452" class="cell" data-execution_count="4">
+<div id="2871dceb" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> fetch_california_housing</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> TensorDataset</span>
@@ -284,7 +284,7 @@ y: tensor([1, 0, 0, 1, 0, 0, 1, 0, 0, 1])
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>real_loader <span class="op">=</span> DataLoader(real_dataset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Preview the first batch:</p>
-<div id="9b0a3299" class="cell" data-execution_count="5">
+<div id="8288d693" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>features, targets <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(real_loader))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(features.shape)  <span class="co"># [32, 8]</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(targets.shape)   <span class="co"># [32, 1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -297,7 +297,7 @@ torch.Size([32, 1])</code></pre>
 </section>
 <section id="step-4-visualization" class="level2">
 <h2 class="anchored" data-anchor-id="step-4-visualization">Step 4: Visualization</h2>
-<div id="1b2b7278" class="cell" data-execution_count="6">
+<div id="7dc3ed37" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>feature_index <span class="op">=</span> <span class="dv">0</span>  <span class="co"># e.g., Median Income</span></span>
@@ -310,7 +310,7 @@ torch.Size([32, 1])</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Pytorch_dataloader_files/figure-html/cell-7-output-1.png" width="576" height="449" class="figure-img"></p>
+<p><img src="Pytorch_dataloader_files/figure-html/cell-7-output-1.png" width="589" height="449" class="figure-img"></p>
 </figure>
 </div>
 </div>

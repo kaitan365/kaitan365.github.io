@@ -4,68 +4,68 @@
     "href": "posts.html",
     "title": "My Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 31, 2024\n\n\nRunning Jupyter Notebooks on Amarel’s GPU Nodes\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nLearning PyTorch: Neural Networks\n\n\nKai Tan\n\n\n\n\nApr 22, 2024\n\n\nA Practical Guide to PyTorch DataLoader\n\n\nKai Tan\n\n\n\n\nApr 21, 2024\n\n\nPyTorch: Logistic Regression\n\n\nKai Tan\n\n\n\n\nApr 20, 2024\n\n\nLearning PyTorch: Simple Linear Regression\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 31, 2024\n\n\nRunning Jupyter Notebooks on Amarel’s GPU Nodes\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nAccelerating Your Python Code: Tips for Faster Performance\n\n\nKai Tan\n\n\n\n\nMay 1, 2024\n\n\nLearning PyTorch: Neural Networks\n\n\nKai Tan\n\n\n\n\nApr 22, 2024\n\n\nIntro to PyTorch DataLoader\n\n\nKai Tan\n\n\n\n\nApr 21, 2024\n\n\nPyTorch: Logistic Regression\n\n\nKai Tan\n\n\n\n\nApr 20, 2024\n\n\nLearning PyTorch: Simple Linear Regression\n\n\nKai Tan\n\n\n\n\nApr 1, 2024\n\n\nUsing SLURM Clusters for Python Jobs\n\n\nKai Tan\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html",
     "href": "posts/Pytorch_dataloader.html",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "",
     "text": "In PyTorch, the DataLoader is a powerful tool that lets you iterate over datasets efficiently. It handles batching, shuffling, and even multi-process data loading — all crucial for model training."
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#what-is-a-dataloader",
     "href": "posts/Pytorch_dataloader.html#what-is-a-dataloader",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "",
     "text": "In PyTorch, the DataLoader is a powerful tool that lets you iterate over datasets efficiently. It handles batching, shuffling, and even multi-process data loading — all crucial for model training."
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#step-1-create-a-custom-dataset",
     "href": "posts/Pytorch_dataloader.html#step-1-create-a-custom-dataset",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Step 1: Create a Custom Dataset",
     "text": "Step 1: Create a Custom Dataset\nStart by subclassing torch.utils.data.Dataset. Here’s an example where we simulate binary labels.\n\nimport torch\nfrom torch.utils.data import Dataset\n\nclass MyDataset(Dataset):\n    def __init__(self):\n        self.data = torch.arange(100)\n        self.labels = self.data % 2  # binary labels\n\n    def __len__(self):\n        return len(self.data)\n\n    def __getitem__(self, idx):\n        return self.data[idx], self.labels[idx]"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#step-2-use-dataloader-to-load-in-batches",
     "href": "posts/Pytorch_dataloader.html#step-2-use-dataloader-to-load-in-batches",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Step 2: Use DataLoader to Load in Batches",
-    "text": "Step 2: Use DataLoader to Load in Batches\n\nfrom torch.utils.data import DataLoader\n\ndataset = MyDataset()\ndataloader = DataLoader(dataset, batch_size=10, shuffle=True)\n\nYou can now easily loop through the dataset in batches:\n\nfor batch_idx, (x, y) in enumerate(dataloader):\n    if batch_idx &lt; 2: \n        print(f\"Batch {batch_idx}\")\n        print(\"x:\", x)\n        print(\"y:\", y)\n        print(\"---\")\n\nBatch 0\nx: tensor([39, 59,  1, 31, 25, 13, 98, 43, 38,  8])\ny: tensor([1, 1, 1, 1, 1, 1, 0, 1, 0, 0])\n---\nBatch 1\nx: tensor([89, 88, 40, 93, 60, 68, 67, 24, 42, 15])\ny: tensor([1, 0, 0, 1, 0, 0, 1, 0, 0, 1])\n---"
+    "text": "Step 2: Use DataLoader to Load in Batches\n\nfrom torch.utils.data import DataLoader\n\ndataset = MyDataset()\ndataloader = DataLoader(dataset, batch_size=10, shuffle=True)\n\nYou can now easily loop through the dataset in batches:\n\nfor batch_idx, (x, y) in enumerate(dataloader):\n    if batch_idx &lt; 2: \n        print(f\"Batch {batch_idx}\")\n        print(\"x:\", x)\n        print(\"y:\", y)\n        print(\"---\")\n\nBatch 0\nx: tensor([58, 82, 22, 98, 81, 68, 62, 24, 69, 20])\ny: tensor([0, 0, 0, 0, 1, 0, 0, 0, 1, 0])\n---\nBatch 1\nx: tensor([77, 32, 52, 97, 41, 93, 27, 65, 33, 39])\ny: tensor([1, 0, 0, 1, 1, 1, 1, 1, 1, 1])\n---"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#step-3-use-a-real-world-dataset-california-housing",
     "href": "posts/Pytorch_dataloader.html#step-3-use-a-real-world-dataset-california-housing",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Step 3: Use a Real-World Dataset (California Housing)",
     "text": "Step 3: Use a Real-World Dataset (California Housing)\nYou can also use built-in datasets from torchvision.\n\nfrom sklearn.datasets import fetch_california_housing\nfrom sklearn.preprocessing import StandardScaler\nfrom torch.utils.data import TensorDataset\n\n# Load data\ncalifornia = fetch_california_housing()\nX = california.data[:1000]\ny = california.target[:1000]\n\n# Convert to tensors\nX_tensor = torch.tensor(X, dtype=torch.float32)\ny_tensor = torch.tensor(y, dtype=torch.float32).view(-1, 1)\n\n# Wrap in a dataset\nreal_dataset = TensorDataset(X_tensor, y_tensor)\nreal_loader = DataLoader(real_dataset, batch_size=32, shuffle=True)\n\nPreview the first batch:\n\nfeatures, targets = next(iter(real_loader))\nprint(features.shape)  # [32, 8]\nprint(targets.shape)   # [32, 1]\n\ntorch.Size([32, 8])\ntorch.Size([32, 1])"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#step-4-visualization",
     "href": "posts/Pytorch_dataloader.html#step-4-visualization",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Step 4: Visualization",
     "text": "Step 4: Visualization\n\nimport matplotlib.pyplot as plt\n\nfeature_index = 0  # e.g., Median Income\nplt.hist(features[:, feature_index].numpy(), bins=20, edgecolor='k')\nplt.title(\"Distribution of Feature: Median Income\")\nplt.xlabel(\"Value\")\nplt.ylabel(\"Frequency\")\nplt.grid(True)\nplt.show()"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#common-dataloader-parameters",
     "href": "posts/Pytorch_dataloader.html#common-dataloader-parameters",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Common DataLoader Parameters",
     "text": "Common DataLoader Parameters\n\n\n\nParameter\nMeaning\n\n\n\n\nbatch_size\nNumber of samples per batch\n\n\nshuffle\nWhether to shuffle data at every epoch\n\n\nnum_workers\nNumber of subprocesses to use for data loading\n\n\ndrop_last\nDrop last batch if it’s smaller than batch_size\n\n\npin_memory\nSpeed up data transfer to GPU if using CUDA"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#reproducibility-tip",
     "href": "posts/Pytorch_dataloader.html#reproducibility-tip",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Reproducibility Tip",
     "text": "Reproducibility Tip\nTo make shuffling deterministic:\ng = torch.Generator()\ng.manual_seed(42)\n\ndataloader = DataLoader(dataset, batch_size=10, shuffle=True, generator=g)"
   },
   {
     "objectID": "posts/Pytorch_dataloader.html#summary",
     "href": "posts/Pytorch_dataloader.html#summary",
-    "title": "A Practical Guide to PyTorch DataLoader",
+    "title": "Intro to PyTorch DataLoader",
     "section": "Summary",
     "text": "Summary\nPyTorch’s DataLoader is a flexible and powerful abstraction for handling dataset loading. Whether you’re using built-in datasets or your own, DataLoader gives you:\n\nMini-batch loading\nShuffling for randomness\nParallelism with num_workers"
   },
