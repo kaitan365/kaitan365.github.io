@@ -354,7 +354,7 @@
     "href": "index.html",
     "title": "Kai Tan",
     "section": "",
-    "text": "Welcome to my website! I’m currently a Stein Fellow in Department of Statistics at Stanford University. Previous, I completed my Ph.D. in Statistics at Rutgers University, under the supervision of Prof. Pierre C. Bellec Pierre C. Bellec.\nMy research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
+    "text": "Welcome to my website! I’m currently a Stein Fellow in Department of Statistics at Stanford University. Previous, I completed my Ph.D. in Statistics at Rutgers University, under the supervision of Pierre C. Bellec.\nMy research interests span a wide range of areas in Statistics and Machine Learning, including high dimensional statistical inference, dimension reduction, and causal inference. Specifically, I develop tools for uncertainty quantification of iterative algorithms (e.g. estimating prediction risks and constructing confidence intervals for parameters of interest), to improve the reliability of statistical machine learning methods."
   },
   {
     "objectID": "index.html#recent-news",
